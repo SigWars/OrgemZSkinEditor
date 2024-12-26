@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="FormTitle" xml:space="preserve">
+    <value>JSON Editor</value>
+  </data>
+  <data name="LoadButton" xml:space="preserve">
+    <value>Load JSON</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Save JSON</value>
+  </data>
+  <data name="ItemListLabel" xml:space="preserve">
+    <value>Items:</value>
+  </data>
+  <data name="ErrorLoading" xml:space="preserve">
+    <value>Error loading JSON data.</value>
+  </data>
+  <data name="ErrorSaving" xml:space="preserve">
+    <value>Error saving JSON data.</value>
+  </data>
+</root>

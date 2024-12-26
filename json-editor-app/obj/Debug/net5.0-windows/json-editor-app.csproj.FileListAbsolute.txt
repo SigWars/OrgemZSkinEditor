@@ -1,0 +1,7 @@
+D:\C#\SkinEditor\json-editor-app\obj\Debug\net5.0-windows\json-editor-app.csproj.AssemblyReference.cache
+D:\C#\SkinEditor\json-editor-app\obj\Debug\net5.0-windows\json_editor_app.MainForm.resources
+D:\C#\SkinEditor\json-editor-app\obj\Debug\net5.0-windows\json-editor-app.csproj.GenerateResource.cache
+D:\C#\SkinEditor\json-editor-app\obj\Debug\net5.0-windows\json-editor-app.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\SkinEditor\json-editor-app\obj\Debug\net5.0-windows\json-editor-app.AssemblyInfoInputs.cache
+D:\C#\SkinEditor\json-editor-app\obj\Debug\net5.0-windows\json-editor-app.AssemblyInfo.cs
+D:\C#\SkinEditor\json-editor-app\obj\Debug\net5.0-windows\json-editor-app.csproj.CoreCompileInputs.cache
