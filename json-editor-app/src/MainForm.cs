@@ -19,6 +19,7 @@ namespace json_editor_app
         {
             InitializeComponent();
             textBoxName.Leave += TextBoxName_Leave;
+            LoadItemNamesToComboBox(); // Carregar itens na ComboBox ao inicializar o formulário
         }
 
         private void LoadButton_Click(object sender, EventArgs e)
@@ -38,6 +39,7 @@ namespace json_editor_app
                         listBoxItemNames.DataSource = bindingSourceItemNames;
                         currentFilePath = jsonFilePath;
                         RefreshForm();
+                        LoadItemNamesToComboBox(); // Atualizar ComboBox após carregar o arquivo
                     }
                     catch (Exception ex)
                     {
@@ -209,6 +211,7 @@ namespace json_editor_app
                 var newItem = new ItemName { ItemNames = new List<string> { itemName }, Repaints = new List<Repaint>() };
                 itemNames.Add(newItem);
                 bindingSourceItemNames.DataSource = itemNames.SelectMany(i => i.ItemNames).ToList();
+                LoadItemNamesToComboBox(); // Atualizar ComboBox após adicionar novo item
             }
         }
 
@@ -227,6 +230,7 @@ namespace json_editor_app
                         itemNames.Remove(selectedItem);
                     }
                     bindingSourceItemNames.DataSource = itemNames.SelectMany(i => i.ItemNames).ToList();
+                    LoadItemNamesToComboBox(); // Atualizar ComboBox após remover item
                 }
             }
         }
@@ -286,6 +290,7 @@ namespace json_editor_app
                     {
                         selectedItem.ItemNames.Add(newItemName);
                         bindingSourceItemNames.DataSource = itemNames.SelectMany(i => i.ItemNames).ToList();
+                        LoadItemNamesToComboBox(); // Atualizar ComboBox após adicionar novo nome de item
                     }
                 }
             }
@@ -310,5 +315,32 @@ namespace json_editor_app
         {
             textBoxOverwrittenDisplayName.Text = $"$original$ ({textBoxName.Text})";
         }
+
+        private void ComboBoxItemNames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Lógica para manipular a seleção do ComboBox
+            string selectedItem = comboBoxItemNames.SelectedItem.ToString();
+            // Atualize a interface do usuário com base no item selecionado
+            var selectedItemName = selectedItem;
+            var selectedItemObj = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
+            if (selectedItemObj != null)
+            {
+                bindingSourceItemNames.DataSource = selectedItemObj.ItemNames;
+                listBoxItemNames.DataSource = bindingSourceItemNames;
+            }
+        }
+
+        private void LoadItemNamesToComboBox()
+        {
+            if (itemNames != null)
+            {
+                var itemNamesList = itemNames.SelectMany(i => i.ItemNames)
+                                             .Where(name => name.StartsWith("--"))
+                                             .ToList();
+                comboBoxItemNames.Items.Clear();
+                comboBoxItemNames.Items.AddRange(itemNamesList.ToArray());
+            }
+        }
     }
 }
+

@@ -33,6 +33,7 @@ namespace json_editor_app
         private System.Windows.Forms.Label labelAttachmentItemNames;
         private System.Windows.Forms.Label labelAttachmentHiddenSelectionTextures;
         private System.Windows.Forms.Label labelAttachmentHiddenSelectionMaterials;
+        private System.Windows.Forms.ComboBox comboBoxItemNames; // Adicionado ComboBox
 
         protected override void Dispose(bool disposing)
         {
@@ -73,14 +74,24 @@ namespace json_editor_app
             this.labelAttachmentItemNames = new System.Windows.Forms.Label();
             this.labelAttachmentHiddenSelectionTextures = new System.Windows.Forms.Label();
             this.labelAttachmentHiddenSelectionMaterials = new System.Windows.Forms.Label();
+            this.comboBoxItemNames = new System.Windows.Forms.ComboBox(); // Adicionado ComboBox
             this.SuspendLayout();
+            // 
+            // comboBoxItemNames
+            // 
+            this.comboBoxItemNames.FormattingEnabled = true;
+            this.comboBoxItemNames.Location = new System.Drawing.Point(12, 12);
+            this.comboBoxItemNames.Name = "comboBoxItemNames";
+            this.comboBoxItemNames.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxItemNames.TabIndex = 29;
+            this.comboBoxItemNames.SelectedIndexChanged += new System.EventHandler(this.ComboBoxItemNames_SelectedIndexChanged);
             // 
             // listBoxItemNames
             // 
             this.listBoxItemNames.FormattingEnabled = true;
-            this.listBoxItemNames.Location = new System.Drawing.Point(12, 28);
+            this.listBoxItemNames.Location = new System.Drawing.Point(12, 50);
             this.listBoxItemNames.Name = "listBoxItemNames";
-            this.listBoxItemNames.Size = new System.Drawing.Size(200, 520);
+            this.listBoxItemNames.Size = new System.Drawing.Size(200, 498);
             this.listBoxItemNames.TabIndex = 0;
             this.listBoxItemNames.SelectedIndexChanged += new System.EventHandler(this.ListBoxItemNames_SelectedIndexChanged);
             // 
@@ -236,7 +247,7 @@ namespace json_editor_app
             // labelItemNames
             // 
             this.labelItemNames.AutoSize = true;
-            this.labelItemNames.Location = new System.Drawing.Point(12, 12);
+            this.labelItemNames.Location = new System.Drawing.Point(12, 34);
             this.labelItemNames.Name = "labelItemNames";
             this.labelItemNames.Size = new System.Drawing.Size(64, 13);
             this.labelItemNames.TabIndex = 19;
@@ -326,6 +337,7 @@ namespace json_editor_app
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(950, 600);
+            this.Controls.Add(this.comboBoxItemNames); // Adicionado ComboBox
             this.Controls.Add(this.labelAttachmentHiddenSelectionMaterials);
             this.Controls.Add(this.labelAttachmentHiddenSelectionTextures);
             this.Controls.Add(this.labelAttachmentItemNames);
@@ -354,8 +366,11 @@ namespace json_editor_app
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.listBoxRepaints);
             this.Controls.Add(this.listBoxItemNames);
-            this.Name = "MainForm";
-            this.Text = "JSON Editor";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.Size = new System.Drawing.Size(950, 650);
+            this.Name = "Skin Editor";
+            this.Text = "OrigemZ Skin Editor";
             this.BackColor = System.Drawing.Color.LightGray;
             this.ResumeLayout(false);
             this.PerformLayout();

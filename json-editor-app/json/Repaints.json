@@ -1,64 +1,91 @@
 [
-    {
-        "itemnames": [
-            "RGD5Grenade",
-            "Weapon_Base",
-            "ClothingBase"
+  {
+    "ItemNames": [
+      "RGD5Grenade",
+      "Weapon_Base",
+      "ClothingBase",
+      "TesteItem"
+    ],
+    "Repaints": [
+      {
+        "Name": "White",
+        "OverwrittenDisplayName": "$original$ (White)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa"
         ],
-        "repaints": [
-            {
-                "name": "White",
-                "overwrittenDisplayName": "$original$ (White)",
-              "excludedItems": [
-                "ItemExemplo1",
-                "ItemExemplo2"
-              ],
-                "hiddenSelectionTextures": [
-                    "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
-                    "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
-                    "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa"
-                ],
-                "hiddenSelectionMaterials": [
-
-                ],
-              "permissionGroups": [
-                "Admins",
-                "Players"
-              ],
-                "attachments": [
-                    {
-                      "itemnames": [
-                        "Attach1",
-                        "Attach2"
-                      ],
-                      "hiddenSelectionTextures": [
-                        "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
-                        "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
-                        "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa"
-                      ],
-                        "hiddenSelectionMaterials": []
-                    }
-                ]
-            },
-            {
-                "name": "White 1",
-                "overwrittenDisplayName": "$original$ (White 1)",
-              "excludedItems": [],
-                "hiddenSelectionTextures": [
-                    "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
-                    "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
-                    "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa"
-                ],
-                "hiddenSelectionMaterials": [],
-                "permissionGroups": [],
-                "attachments": [
-                    {
-                        "itemnames": [],
-                        "hiddenSelectionTextures": [],
-                        "hiddenSelectionMaterials": []
-                    }
-                ]
-            }
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
         ]
-    }
+      },
+      {
+        "Name": "White 1",
+        "OverwrittenDisplayName": "$original$ (White 1)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [
+          "VIP"
+        ],
+        "Attachments": [
+          {
+            "ItemNames": [
+              "TesteAttach"
+            ],
+            "HiddenSelectionTextures": [
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa"
+            ],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ItemNames": [
+      "---Roupas---",
+      "Clothing"
+    ],
+    "Repaints": [
+      {
+        "Name": "Branco",
+        "OverwrittenDisplayName": "$original$ (Branco)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [
+          "Admin"
+        ],
+        "Attachments": [
+          {
+            "ItemNames": [
+              "Bolso",
+              "Coldre"
+            ],
+            "HiddenSelectionTextures": [
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa"
+            ],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      }
+    ]
+  }
 ]

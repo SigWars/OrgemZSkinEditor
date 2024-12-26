@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\C#\\SkinEditor\\json-editor-app\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|d:\\c#\\skineditor\\json-editor-app\\src\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|solutionrelative:src\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|d:\\c#\\skineditor\\json-editor-app\\src\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|solutionrelative:src\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|d:\\c#\\skineditor\\json-editor-app\\src\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|solutionrelative:src\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|d:\\c#\\skineditor\\json-editor-app\\src\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|solutionrelative:src\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|d:\\c#\\skineditor\\json-editor-app\\src\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|solutionrelative:src\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|d:\\c#\\skineditor\\json-editor-app\\src\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|d:\\c#\\skineditor\\json-editor-app\\src\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|solutionrelative:src\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|d:\\c#\\skineditor\\json-editor-app\\src\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|solutionrelative:src\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6CC317B6-8D5D-4185-B36C-AEE96FF82083}|json-editor-app.csproj|d:\\c#\\skineditor\\json-editor-app\\src\\attachment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,58 +54,47 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Category.cs",
               "DocumentMoniker": "D:\\C#\\SkinEditor\\json-editor-app\\src\\Category.cs",
               "RelativeDocumentMoniker": "src\\Category.cs",
               "ToolTip": "D:\\C#\\SkinEditor\\json-editor-app\\src\\Category.cs",
               "RelativeToolTip": "src\\Category.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-26T12:00:47.78Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainForm.cs [Projeto]",
-              "DocumentMoniker": "D:\\C#\\SkinEditor\\json-editor-app\\src\\MainForm.cs",
-              "RelativeDocumentMoniker": "src\\MainForm.cs",
-              "ToolTip": "D:\\C#\\SkinEditor\\json-editor-app\\src\\MainForm.cs [Projeto]",
-              "RelativeToolTip": "src\\MainForm.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T17:44:51.979Z",
-              "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainForm.Designer.cs",
               "DocumentMoniker": "D:\\C#\\SkinEditor\\json-editor-app\\src\\MainForm.Designer.cs",
               "RelativeDocumentMoniker": "src\\MainForm.Designer.cs",
               "ToolTip": "D:\\C#\\SkinEditor\\json-editor-app\\src\\MainForm.Designer.cs",
               "RelativeToolTip": "src\\MainForm.Designer.cs",
-              "ViewState": "AgIAAMAAAAAAAAAAAAAAANIAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAEoBAAAAAAAAAAAwwHwBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-26T16:41:25.7Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainForm.cs",
               "DocumentMoniker": "D:\\C#\\SkinEditor\\json-editor-app\\src\\MainForm.cs",
               "RelativeDocumentMoniker": "src\\MainForm.cs",
               "ToolTip": "D:\\C#\\SkinEditor\\json-editor-app\\src\\MainForm.cs",
               "RelativeToolTip": "src\\MainForm.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAADcBAAAAAAAAAAAwwFoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-26T12:28:13.283Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "Repaint.cs",
               "DocumentMoniker": "D:\\C#\\SkinEditor\\json-editor-app\\src\\Repaint.cs",
               "RelativeDocumentMoniker": "src\\Repaint.cs",
@@ -121,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Prompt.cs",
               "DocumentMoniker": "D:\\C#\\SkinEditor\\json-editor-app\\src\\Prompt.cs",
               "RelativeDocumentMoniker": "src\\Prompt.cs",
@@ -145,7 +130,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "ItemName.cs",
               "DocumentMoniker": "D:\\C#\\SkinEditor\\json-editor-app\\src\\ItemName.cs",
               "RelativeDocumentMoniker": "src\\ItemName.cs",
@@ -157,7 +142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Attachment.cs",
               "DocumentMoniker": "D:\\C#\\SkinEditor\\json-editor-app\\src\\Attachment.cs",
               "RelativeDocumentMoniker": "src\\Attachment.cs",
@@ -169,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "RepaintItem.cs",
               "DocumentMoniker": "D:\\C#\\SkinEditor\\json-editor-app\\src\\Models\\RepaintItem.cs",
               "RelativeDocumentMoniker": "src\\Models\\RepaintItem.cs",
