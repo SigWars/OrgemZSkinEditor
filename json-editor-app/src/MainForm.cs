@@ -81,7 +81,20 @@ namespace json_editor_app
                     textBoxHiddenSelectionTextures.Text = string.Join(Environment.NewLine, repaint.HiddenSelectionTextures);
                     textBoxHiddenSelectionMaterials.Text = string.Join(Environment.NewLine, repaint.HiddenSelectionMaterials);
                     textBoxPermissionGroups.Text = string.Join(Environment.NewLine, repaint.PermissionGroups);
-                    textBoxAttachments.Text = string.Join(Environment.NewLine, repaint.Attachments.Select(a => $"ItemNames: {string.Join(", ", a.ItemNames)}\nHiddenSelectionTextures: {string.Join(", ", a.HiddenSelectionTextures)}\nHiddenSelectionMaterials: {string.Join(", ", a.HiddenSelectionMaterials)}"));
+
+                    if (repaint.Attachments != null && repaint.Attachments.Count > 0)
+                    {
+                        var attachment = repaint.Attachments[0];
+                        textBoxAttachmentItemNames.Text = string.Join(Environment.NewLine, attachment.ItemNames);
+                        textBoxAttachmentHiddenSelectionTextures.Text = string.Join(Environment.NewLine, attachment.HiddenSelectionTextures);
+                        textBoxAttachmentHiddenSelectionMaterials.Text = string.Join(Environment.NewLine, attachment.HiddenSelectionMaterials);
+                    }
+                    else
+                    {
+                        textBoxAttachmentItemNames.Clear();
+                        textBoxAttachmentHiddenSelectionTextures.Clear();
+                        textBoxAttachmentHiddenSelectionMaterials.Clear();
+                    }
                 }
             }
         }
