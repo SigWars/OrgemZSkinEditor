@@ -1,3 +1,5 @@
+﻿using System.Windows.Forms;
+
 namespace json_editor_app
 {
     partial class MainForm
@@ -78,7 +80,7 @@ namespace json_editor_app
             this.listBoxItemNames.FormattingEnabled = true;
             this.listBoxItemNames.Location = new System.Drawing.Point(12, 28);
             this.listBoxItemNames.Name = "listBoxItemNames";
-            this.listBoxItemNames.Size = new System.Drawing.Size(200, 368);
+            this.listBoxItemNames.Size = new System.Drawing.Size(200, 520);
             this.listBoxItemNames.TabIndex = 0;
             this.listBoxItemNames.SelectedIndexChanged += new System.EventHandler(this.ListBoxItemNames_SelectedIndexChanged);
             // 
@@ -87,7 +89,7 @@ namespace json_editor_app
             this.listBoxRepaints.FormattingEnabled = true;
             this.listBoxRepaints.Location = new System.Drawing.Point(218, 28);
             this.listBoxRepaints.Name = "listBoxRepaints";
-            this.listBoxRepaints.Size = new System.Drawing.Size(200, 368);
+            this.listBoxRepaints.Size = new System.Drawing.Size(200, 520);
             this.listBoxRepaints.TabIndex = 1;
             this.listBoxRepaints.SelectedIndexChanged += new System.EventHandler(this.ListBoxRepaints_SelectedIndexChanged);
             // 
@@ -151,30 +153,29 @@ namespace json_editor_app
             this.textBoxAttachmentHiddenSelectionMaterials.Multiline = true;
             this.textBoxAttachmentHiddenSelectionMaterials.Name = "textBoxAttachmentHiddenSelectionMaterials";
             this.textBoxAttachmentHiddenSelectionMaterials.Size = new System.Drawing.Size(500, 60);
-            // 
             // loadButton
-            // 
-            this.loadButton.Location = new System.Drawing.Point(12, 402);
+            this.loadButton.Location = new System.Drawing.Point(650, 570);
+            this.loadButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             this.loadButton.Name = "loadButton";
             this.loadButton.Size = new System.Drawing.Size(75, 23);
             this.loadButton.TabIndex = 11;
             this.loadButton.Text = "Load";
             this.loadButton.UseVisualStyleBackColor = true;
             this.loadButton.Click += new System.EventHandler(this.LoadButton_Click);
-            // 
+
             // saveButton
-            // 
-            this.saveButton.Location = new System.Drawing.Point(849, 402);
+            this.saveButton.Location = new System.Drawing.Point(730, 570);
+            this.saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 12;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
+
             // saveAsButton
-            // 
-            this.saveAsButton.Location = new System.Drawing.Point(849, 431);
+            this.saveAsButton.Location = new System.Drawing.Point(810, 570);
+            this.saveAsButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             this.saveAsButton.Name = "saveAsButton";
             this.saveAsButton.Size = new System.Drawing.Size(75, 23);
             this.saveAsButton.TabIndex = 13;
@@ -182,55 +183,55 @@ namespace json_editor_app
             this.saveAsButton.UseVisualStyleBackColor = true;
             this.saveAsButton.Click += new System.EventHandler(this.SaveAsButton_Click);
             // 
-            // addItemNameButton
+            // addStringToItemNameButton
             // 
-            this.addItemNameButton.Location = new System.Drawing.Point(12, 431);
-            this.addItemNameButton.Name = "addItemNameButton";
-            this.addItemNameButton.Size = new System.Drawing.Size(75, 23);
-            this.addItemNameButton.TabIndex = 14;
-            this.addItemNameButton.Text = "Add Item";
-            this.addItemNameButton.UseVisualStyleBackColor = true;
-            this.addItemNameButton.Click += new System.EventHandler(this.AddItemNameButton_Click);
+            this.addStringToItemNameButton.Location = new System.Drawing.Point(12, 545);
+            this.addStringToItemNameButton.Name = "addStringToItemNameButton";
+            this.addStringToItemNameButton.Size = new System.Drawing.Size(90, 23);
+            this.addStringToItemNameButton.TabIndex = 18;
+            this.addStringToItemNameButton.Text = "Add Item";
+            this.addStringToItemNameButton.UseVisualStyleBackColor = true;
+            this.addStringToItemNameButton.Click += new System.EventHandler(this.AddStringToItemNameButton_Click);
             // 
             // removeItemNameButton
             // 
-            this.removeItemNameButton.Location = new System.Drawing.Point(93, 431);
+            this.removeItemNameButton.Location = new System.Drawing.Point(120, 545);
             this.removeItemNameButton.Name = "removeItemNameButton";
-            this.removeItemNameButton.Size = new System.Drawing.Size(119, 23);
+            this.removeItemNameButton.Size = new System.Drawing.Size(90, 23);
             this.removeItemNameButton.TabIndex = 15;
             this.removeItemNameButton.Text = "Remove Item";
             this.removeItemNameButton.UseVisualStyleBackColor = true;
             this.removeItemNameButton.Click += new System.EventHandler(this.RemoveItemNameButton_Click);
             // 
+            // addItemButton
+            // 
+            this.addItemNameButton.Location = new System.Drawing.Point(12, 570);
+            this.addItemNameButton.Name = "addItemNameButton";
+            this.addItemNameButton.Size = new System.Drawing.Size(75, 23);
+            this.addItemNameButton.TabIndex = 14;
+            this.addItemNameButton.Text = "Add Group";
+            this.addItemNameButton.UseVisualStyleBackColor = true;
+            this.addItemNameButton.Click += new System.EventHandler(this.AddItemNameButton_Click);
+            // 
             // addRepaintButton
             // 
-            this.addRepaintButton.Location = new System.Drawing.Point(218, 402);
+            this.addRepaintButton.Location = new System.Drawing.Point(218, 545);
             this.addRepaintButton.Name = "addRepaintButton";
-            this.addRepaintButton.Size = new System.Drawing.Size(75, 23);
+            this.addRepaintButton.Size = new System.Drawing.Size(100, 23);
             this.addRepaintButton.TabIndex = 16;
-            this.addRepaintButton.Text = "Add Repaint";
+            this.addRepaintButton.Text = "Add Skin";
             this.addRepaintButton.UseVisualStyleBackColor = true;
             this.addRepaintButton.Click += new System.EventHandler(this.AddRepaintButton_Click);
             // 
             // removeRepaintButton
             // 
-            this.removeRepaintButton.Location = new System.Drawing.Point(299, 402);
+            this.removeRepaintButton.Location = new System.Drawing.Point(320, 545);
             this.removeRepaintButton.Name = "removeRepaintButton";
-            this.removeRepaintButton.Size = new System.Drawing.Size(119, 23);
+            this.removeRepaintButton.Size = new System.Drawing.Size(100, 23);
             this.removeRepaintButton.TabIndex = 17;
-            this.removeRepaintButton.Text = "Remove Repaint";
+            this.removeRepaintButton.Text = "Remove Skin";
             this.removeRepaintButton.UseVisualStyleBackColor = true;
             this.removeRepaintButton.Click += new System.EventHandler(this.RemoveRepaintButton_Click);
-            // 
-            // addStringToItemNameButton
-            // 
-            this.addStringToItemNameButton.Location = new System.Drawing.Point(218, 431);
-            this.addStringToItemNameButton.Name = "addStringToItemNameButton";
-            this.addStringToItemNameButton.Size = new System.Drawing.Size(200, 23);
-            this.addStringToItemNameButton.TabIndex = 18;
-            this.addStringToItemNameButton.Text = "Add String to Item Names";
-            this.addStringToItemNameButton.UseVisualStyleBackColor = true;
-            this.addStringToItemNameButton.Click += new System.EventHandler(this.AddStringToItemNameButton_Click);
             // 
             // labelItemNames
             // 

@@ -25,11 +25,7 @@
               "Attach1",
               "Attach2"
             ],
-            "HiddenSelectionTextures": [
-              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
-              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
-              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa"
-            ],
+            "HiddenSelectionTextures": [],
             "HiddenSelectionMaterials": []
           }
         ]
@@ -46,8 +42,14 @@
         "PermissionGroups": [],
         "Attachments": [
           {
-            "ItemNames": [],
-            "HiddenSelectionTextures": [],
+            "ItemNames": [
+              "sagatiba"
+            ],
+            "HiddenSelectionTextures": [
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa"
+            ],
             "HiddenSelectionMaterials": []
           }
         ]
