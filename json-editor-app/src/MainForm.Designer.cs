@@ -10,7 +10,6 @@ namespace json_editor_app
         private System.Windows.Forms.TextBox textBoxHiddenSelectionTextures;
         private System.Windows.Forms.TextBox textBoxHiddenSelectionMaterials;
         private System.Windows.Forms.TextBox textBoxPermissionGroups;
-        private System.Windows.Forms.TextBox textBoxAttachments;
         private System.Windows.Forms.TextBox textBoxAttachmentItemNames;
         private System.Windows.Forms.TextBox textBoxAttachmentHiddenSelectionTextures;
         private System.Windows.Forms.TextBox textBoxAttachmentHiddenSelectionMaterials;
@@ -27,7 +26,6 @@ namespace json_editor_app
         private System.Windows.Forms.Label labelHiddenSelectionTextures;
         private System.Windows.Forms.Label labelHiddenSelectionMaterials;
         private System.Windows.Forms.Label labelPermissionGroups;
-        private System.Windows.Forms.Label labelAttachments;
         private System.Windows.Forms.Label labelAttachmentItemNames;
         private System.Windows.Forms.Label labelAttachmentHiddenSelectionTextures;
         private System.Windows.Forms.Label labelAttachmentHiddenSelectionMaterials;
@@ -50,7 +48,6 @@ namespace json_editor_app
             this.textBoxHiddenSelectionTextures = new System.Windows.Forms.TextBox();
             this.textBoxHiddenSelectionMaterials = new System.Windows.Forms.TextBox();
             this.textBoxPermissionGroups = new System.Windows.Forms.TextBox();
-            this.textBoxAttachments = new System.Windows.Forms.TextBox();
             this.textBoxAttachmentItemNames = new System.Windows.Forms.TextBox();
             this.textBoxAttachmentHiddenSelectionTextures = new System.Windows.Forms.TextBox();
             this.textBoxAttachmentHiddenSelectionMaterials = new System.Windows.Forms.TextBox();
@@ -67,7 +64,6 @@ namespace json_editor_app
             this.labelHiddenSelectionTextures = new System.Windows.Forms.Label();
             this.labelHiddenSelectionMaterials = new System.Windows.Forms.Label();
             this.labelPermissionGroups = new System.Windows.Forms.Label();
-            this.labelAttachments = new System.Windows.Forms.Label();
             this.labelAttachmentItemNames = new System.Windows.Forms.Label();
             this.labelAttachmentHiddenSelectionTextures = new System.Windows.Forms.Label();
             this.labelAttachmentHiddenSelectionMaterials = new System.Windows.Forms.Label();
@@ -128,14 +124,6 @@ namespace json_editor_app
             this.textBoxPermissionGroups.Name = "textBoxPermissionGroups";
             this.textBoxPermissionGroups.Size = new System.Drawing.Size(364, 60);
             this.textBoxPermissionGroups.TabIndex = 6;
-            // 
-            // textBoxAttachments
-            // 
-            this.textBoxAttachments.Location = new System.Drawing.Point(424, 346);
-            this.textBoxAttachments.Multiline = true;
-            this.textBoxAttachments.Name = "textBoxAttachments";
-            this.textBoxAttachments.Size = new System.Drawing.Size(364, 60);
-            this.textBoxAttachments.TabIndex = 7;
             // 
             // textBoxAttachmentItemNames
             // 
@@ -284,15 +272,6 @@ namespace json_editor_app
             this.labelPermissionGroups.TabIndex = 23;
             this.labelPermissionGroups.Text = "Permission Groups";
             // 
-            // labelAttachments
-            // 
-            this.labelAttachments.AutoSize = true;
-            this.labelAttachments.Location = new System.Drawing.Point(421, 330);
-            this.labelAttachments.Name = "labelAttachments";
-            this.labelAttachments.Size = new System.Drawing.Size(66, 13);
-            this.labelAttachments.TabIndex = 24;
-            this.labelAttachments.Text = "Attachments";
-            // 
             // labelAttachmentItemNames
             // 
             this.labelAttachmentItemNames.AutoSize = true;
@@ -326,7 +305,6 @@ namespace json_editor_app
             this.Controls.Add(this.labelAttachmentHiddenSelectionMaterials);
             this.Controls.Add(this.labelAttachmentHiddenSelectionTextures);
             this.Controls.Add(this.labelAttachmentItemNames);
-            this.Controls.Add(this.labelAttachments);
             this.Controls.Add(this.labelPermissionGroups);
             this.Controls.Add(this.labelHiddenSelectionMaterials);
             this.Controls.Add(this.labelHiddenSelectionTextures);
@@ -343,7 +321,6 @@ namespace json_editor_app
             this.Controls.Add(this.textBoxAttachmentHiddenSelectionMaterials);
             this.Controls.Add(this.textBoxAttachmentHiddenSelectionTextures);
             this.Controls.Add(this.textBoxAttachmentItemNames);
-            this.Controls.Add(this.textBoxAttachments);
             this.Controls.Add(this.textBoxPermissionGroups);
             this.Controls.Add(this.textBoxHiddenSelectionMaterials);
             this.Controls.Add(this.textBoxHiddenSelectionTextures);

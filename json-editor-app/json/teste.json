@@ -1,0 +1,65 @@
+[
+  {
+    "ItemNames": [
+      "RGD5Grenade",
+      "Weapon_Base"
+    ],
+    "Repaints": [
+      {
+        "Name": "White",
+        "OverwrittenDisplayName": "$original$ (White)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [
+          "Admins",
+          "Players"
+        ],
+        "Attachments": [
+          {
+            "ItemNames": [
+              "testeattach"
+            ],
+            "HiddenSelectionTextures": [
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa"
+            ],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "White 1",
+        "OverwrittenDisplayName": "$original$ (White 1)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [
+          "Admins",
+          "Players",
+          "Menine"
+        ],
+        "Attachments": [
+          {
+            "ItemNames": [
+              "sagatiba"
+            ],
+            "HiddenSelectionTextures": [
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa"
+            ],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      }
+    ]
+  }
+]

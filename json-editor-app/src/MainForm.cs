@@ -10,7 +10,6 @@ namespace json_editor_app
 {
     public partial class MainForm : Form
     {
-        private string jsonFilePath = @"D:\C#\SkinEditor\json-editor-app\json\Repaints.json";
         private BindingSource bindingSourceItemNames = new BindingSource();
         private BindingSource bindingSourceRepaints = new BindingSource();
         private List<ItemName> itemNames;
@@ -22,30 +21,112 @@ namespace json_editor_app
 
         private void LoadButton_Click(object sender, EventArgs e)
         {
-            try
+            using (var openFileDialog = new System.Windows.Forms.OpenFileDialog())
             {
-                var jsonData = File.ReadAllText(jsonFilePath);
-                itemNames = JsonConvert.DeserializeObject<List<ItemName>>(jsonData);
-                bindingSourceItemNames.DataSource = itemNames.SelectMany(i => i.ItemNames).ToList();
-                listBoxItemNames.DataSource = bindingSourceItemNames;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading JSON: {ex.Message}");
+                openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        var jsonFilePath = openFileDialog.FileName;
+                        var jsonData = File.ReadAllText(jsonFilePath);
+                        itemNames = JsonConvert.DeserializeObject<List<ItemName>>(jsonData);
+                        bindingSourceItemNames.DataSource = itemNames.SelectMany(i => i.ItemNames).ToList();
+                        listBoxItemNames.DataSource = bindingSourceItemNames;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error loading JSON: {ex.Message}");
+                    }
+                }
             }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            try
+            using (var saveFileDialog = new System.Windows.Forms.SaveFileDialog())
             {
-                var jsonData = JsonConvert.SerializeObject(itemNames, Formatting.Indented);
-                File.WriteAllText(jsonFilePath, jsonData);
-                MessageBox.Show("JSON saved successfully.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error saving JSON: {ex.Message}");
+                saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Atualizar os dados dos repaints com os valores dos campos de texto
+                        var selectedItemIndex = listBoxItemNames.SelectedIndex;
+                        var selectedRepaintIndex = listBoxRepaints.SelectedIndex;
+                        if (selectedItemIndex >= 0 && selectedRepaintIndex >= 0 && itemNames != null)
+                        {
+                            var selectedItemName = listBoxItemNames.SelectedItem.ToString();
+                            var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
+                            if (selectedItem != null && selectedRepaintIndex < selectedItem.Repaints.Count)
+                            {
+                                var repaint = selectedItem.Repaints[selectedRepaintIndex];
+                                repaint.Name = textBoxName.Text;
+                                repaint.OverwrittenDisplayName = textBoxOverwrittenDisplayName.Text;
+                                repaint.HiddenSelectionTextures = textBoxHiddenSelectionTextures.Text
+                                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                    .Where(s => !string.IsNullOrWhiteSpace(s))
+                                    .ToList();
+                                repaint.HiddenSelectionMaterials = textBoxHiddenSelectionMaterials.Text
+                                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                    .Where(s => !string.IsNullOrWhiteSpace(s))
+                                    .ToList();
+                                repaint.PermissionGroups = textBoxPermissionGroups.Text
+                                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                    .Where(s => !string.IsNullOrWhiteSpace(s))
+                                    .ToList();
+
+                                // Atualizar os dados dos attachments
+                                if (repaint.Attachments.Count > 0)
+                                {
+                                    var attachment = repaint.Attachments[0];
+                                    attachment.ItemNames = textBoxAttachmentItemNames.Text
+                                        .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                        .Where(s => !string.IsNullOrWhiteSpace(s))
+                                        .ToList();
+                                    attachment.HiddenSelectionTextures = textBoxAttachmentHiddenSelectionTextures.Text
+                                        .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                        .Where(s => !string.IsNullOrWhiteSpace(s))
+                                        .ToList();
+                                    attachment.HiddenSelectionMaterials = textBoxAttachmentHiddenSelectionMaterials.Text
+                                        .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                        .Where(s => !string.IsNullOrWhiteSpace(s))
+                                        .ToList();
+                                }
+                                else
+                                {
+                                    var newAttachment = new Attachment
+                                    {
+                                        ItemNames = textBoxAttachmentItemNames.Text
+                                            .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                            .Where(s => !string.IsNullOrWhiteSpace(s))
+                                            .ToList(),
+                                        HiddenSelectionTextures = textBoxAttachmentHiddenSelectionTextures.Text
+                                            .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                            .Where(s => !string.IsNullOrWhiteSpace(s))
+                                            .ToList(),
+                                        HiddenSelectionMaterials = textBoxAttachmentHiddenSelectionMaterials.Text
+                                            .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                            .Where(s => !string.IsNullOrWhiteSpace(s))
+                                            .ToList()
+                                    };
+                                    repaint.Attachments.Add(newAttachment);
+                                }
+                            }
+                        }
+
+                        var jsonFilePath = saveFileDialog.FileName;
+                        var jsonData = JsonConvert.SerializeObject(itemNames, Formatting.Indented);
+                        File.WriteAllText(jsonFilePath, jsonData);
+                        MessageBox.Show("JSON saved successfully.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error saving JSON: {ex.Message}");
+                    }
+                }
             }
         }
 
@@ -73,7 +154,7 @@ namespace json_editor_app
             {
                 var selectedItemName = listBoxItemNames.SelectedItem.ToString();
                 var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
-                if (selectedItem != null)
+                if (selectedItem != null && selectedRepaintIndex < selectedItem.Repaints.Count)
                 {
                     var repaint = selectedItem.Repaints[selectedRepaintIndex];
                     textBoxName.Text = repaint.Name;
@@ -119,7 +200,11 @@ namespace json_editor_app
                 var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
                 if (selectedItem != null)
                 {
-                    itemNames.Remove(selectedItem);
+                    selectedItem.ItemNames.Remove(selectedItemName);
+                    if (selectedItem.ItemNames.Count == 0)
+                    {
+                        itemNames.Remove(selectedItem);
+                    }
                     bindingSourceItemNames.DataSource = itemNames.SelectMany(i => i.ItemNames).ToList();
                 }
             }
@@ -139,6 +224,9 @@ namespace json_editor_app
                     {
                         selectedItem.Repaints.Add(new Repaint { Name = repaintName });
                         bindingSourceRepaints.DataSource = selectedItem.Repaints;
+                        listBoxRepaints.DataSource = null;
+                        listBoxRepaints.DataSource = bindingSourceRepaints;
+                        listBoxRepaints.DisplayMember = "Name";
                     }
                 }
             }
@@ -152,10 +240,13 @@ namespace json_editor_app
             {
                 var selectedItemName = listBoxItemNames.SelectedItem.ToString();
                 var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
-                if (selectedItem != null)
+                if (selectedItem != null && selectedRepaintIndex < selectedItem.Repaints.Count)
                 {
                     selectedItem.Repaints.RemoveAt(selectedRepaintIndex);
                     bindingSourceRepaints.DataSource = selectedItem.Repaints;
+                    listBoxRepaints.DataSource = null;
+                    listBoxRepaints.DataSource = bindingSourceRepaints;
+                    listBoxRepaints.DisplayMember = "Name";
                 }
             }
         }
