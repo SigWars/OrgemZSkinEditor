@@ -2,7 +2,8 @@
   {
     "ItemNames": [
       "RGD5Grenade",
-      "Weapon_Base"
+      "Weapon_Base",
+      "ClothingBase"
     ],
     "Repaints": [
       {
@@ -21,7 +22,8 @@
         "Attachments": [
           {
             "ItemNames": [
-              "testeattach"
+              "Attach1",
+              "Attach2"
             ],
             "HiddenSelectionTextures": [
               "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
@@ -41,21 +43,11 @@
           "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa"
         ],
         "HiddenSelectionMaterials": [],
-        "PermissionGroups": [
-          "Admins",
-          "Players",
-          "Menine"
-        ],
+        "PermissionGroups": [],
         "Attachments": [
           {
-            "ItemNames": [
-              "sagatiba"
-            ],
-            "HiddenSelectionTextures": [
-              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
-              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
-              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa"
-            ],
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
             "HiddenSelectionMaterials": []
           }
         ]

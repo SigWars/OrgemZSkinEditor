@@ -13,10 +13,12 @@ namespace json_editor_app
         private BindingSource bindingSourceItemNames = new BindingSource();
         private BindingSource bindingSourceRepaints = new BindingSource();
         private List<ItemName> itemNames;
+        private string currentFilePath;
 
         public MainForm()
         {
             InitializeComponent();
+            textBoxName.Leave += TextBoxName_Leave;
         }
 
         private void LoadButton_Click(object sender, EventArgs e)
@@ -34,6 +36,8 @@ namespace json_editor_app
                         itemNames = JsonConvert.DeserializeObject<List<ItemName>>(jsonData);
                         bindingSourceItemNames.DataSource = itemNames.SelectMany(i => i.ItemNames).ToList();
                         listBoxItemNames.DataSource = bindingSourceItemNames;
+                        currentFilePath = jsonFilePath;
+                        RefreshForm();
                     }
                     catch (Exception ex)
                     {
@@ -45,88 +49,105 @@ namespace json_editor_app
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(currentFilePath))
+            {
+                SaveAsButton_Click(sender, e);
+            }
+            else
+            {
+                SaveToFile(currentFilePath);
+            }
+        }
+
+        private void SaveAsButton_Click(object sender, EventArgs e)
+        {
             using (var saveFileDialog = new System.Windows.Forms.SaveFileDialog())
             {
                 saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    try
+                    SaveToFile(saveFileDialog.FileName);
+                }
+            }
+        }
+
+        private void SaveToFile(string filePath)
+        {
+            try
+            {
+                // Atualizar os dados dos repaints com os valores dos campos de texto
+                var selectedItemIndex = listBoxItemNames.SelectedIndex;
+                var selectedRepaintIndex = listBoxRepaints.SelectedIndex;
+                if (selectedItemIndex >= 0 && selectedRepaintIndex >= 0 && itemNames != null)
+                {
+                    var selectedItemName = listBoxItemNames.SelectedItem.ToString();
+                    var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
+                    if (selectedItem != null && selectedRepaintIndex < selectedItem.Repaints.Count)
                     {
-                        // Atualizar os dados dos repaints com os valores dos campos de texto
-                        var selectedItemIndex = listBoxItemNames.SelectedIndex;
-                        var selectedRepaintIndex = listBoxRepaints.SelectedIndex;
-                        if (selectedItemIndex >= 0 && selectedRepaintIndex >= 0 && itemNames != null)
+                        var repaint = selectedItem.Repaints[selectedRepaintIndex];
+                        repaint.Name = textBoxName.Text;
+                        repaint.OverwrittenDisplayName = textBoxOverwrittenDisplayName.Text;
+                        repaint.HiddenSelectionTextures = textBoxHiddenSelectionTextures.Text
+                            .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                            .Where(s => !string.IsNullOrWhiteSpace(s))
+                            .ToList();
+                        repaint.HiddenSelectionMaterials = textBoxHiddenSelectionMaterials.Text
+                            .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                            .Where(s => !string.IsNullOrWhiteSpace(s))
+                            .ToList();
+                        repaint.PermissionGroups = textBoxPermissionGroups.Text
+                            .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                            .Where(s => !string.IsNullOrWhiteSpace(s))
+                            .ToList();
+
+                        // Atualizar os dados dos attachments
+                        if (repaint.Attachments.Count > 0)
                         {
-                            var selectedItemName = listBoxItemNames.SelectedItem.ToString();
-                            var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
-                            if (selectedItem != null && selectedRepaintIndex < selectedItem.Repaints.Count)
-                            {
-                                var repaint = selectedItem.Repaints[selectedRepaintIndex];
-                                repaint.Name = textBoxName.Text;
-                                repaint.OverwrittenDisplayName = textBoxOverwrittenDisplayName.Text;
-                                repaint.HiddenSelectionTextures = textBoxHiddenSelectionTextures.Text
-                                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                                    .Where(s => !string.IsNullOrWhiteSpace(s))
-                                    .ToList();
-                                repaint.HiddenSelectionMaterials = textBoxHiddenSelectionMaterials.Text
-                                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                                    .Where(s => !string.IsNullOrWhiteSpace(s))
-                                    .ToList();
-                                repaint.PermissionGroups = textBoxPermissionGroups.Text
-                                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                                    .Where(s => !string.IsNullOrWhiteSpace(s))
-                                    .ToList();
-
-                                // Atualizar os dados dos attachments
-                                if (repaint.Attachments.Count > 0)
-                                {
-                                    var attachment = repaint.Attachments[0];
-                                    attachment.ItemNames = textBoxAttachmentItemNames.Text
-                                        .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                                        .Where(s => !string.IsNullOrWhiteSpace(s))
-                                        .ToList();
-                                    attachment.HiddenSelectionTextures = textBoxAttachmentHiddenSelectionTextures.Text
-                                        .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                                        .Where(s => !string.IsNullOrWhiteSpace(s))
-                                        .ToList();
-                                    attachment.HiddenSelectionMaterials = textBoxAttachmentHiddenSelectionMaterials.Text
-                                        .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                                        .Where(s => !string.IsNullOrWhiteSpace(s))
-                                        .ToList();
-                                }
-                                else
-                                {
-                                    var newAttachment = new Attachment
-                                    {
-                                        ItemNames = textBoxAttachmentItemNames.Text
-                                            .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                                            .Where(s => !string.IsNullOrWhiteSpace(s))
-                                            .ToList(),
-                                        HiddenSelectionTextures = textBoxAttachmentHiddenSelectionTextures.Text
-                                            .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                                            .Where(s => !string.IsNullOrWhiteSpace(s))
-                                            .ToList(),
-                                        HiddenSelectionMaterials = textBoxAttachmentHiddenSelectionMaterials.Text
-                                            .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
-                                            .Where(s => !string.IsNullOrWhiteSpace(s))
-                                            .ToList()
-                                    };
-                                    repaint.Attachments.Add(newAttachment);
-                                }
-                            }
+                            var attachment = repaint.Attachments[0];
+                            attachment.ItemNames = textBoxAttachmentItemNames.Text
+                                .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                .Where(s => !string.IsNullOrWhiteSpace(s))
+                                .ToList();
+                            attachment.HiddenSelectionTextures = textBoxAttachmentHiddenSelectionTextures.Text
+                                .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                .Where(s => !string.IsNullOrWhiteSpace(s))
+                                .ToList();
+                            attachment.HiddenSelectionMaterials = textBoxAttachmentHiddenSelectionMaterials.Text
+                                .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                .Where(s => !string.IsNullOrWhiteSpace(s))
+                                .ToList();
                         }
-
-                        var jsonFilePath = saveFileDialog.FileName;
-                        var jsonData = JsonConvert.SerializeObject(itemNames, Formatting.Indented);
-                        File.WriteAllText(jsonFilePath, jsonData);
-                        MessageBox.Show("JSON saved successfully.");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error saving JSON: {ex.Message}");
+                        else
+                        {
+                            var newAttachment = new Attachment
+                            {
+                                ItemNames = textBoxAttachmentItemNames.Text
+                                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                    .Where(s => !string.IsNullOrWhiteSpace(s))
+                                    .ToList(),
+                                HiddenSelectionTextures = textBoxAttachmentHiddenSelectionTextures.Text
+                                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                    .Where(s => !string.IsNullOrWhiteSpace(s))
+                                    .ToList(),
+                                HiddenSelectionMaterials = textBoxAttachmentHiddenSelectionMaterials.Text
+                                    .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                                    .Where(s => !string.IsNullOrWhiteSpace(s))
+                                    .ToList()
+                            };
+                            repaint.Attachments.Add(newAttachment);
+                        }
                     }
                 }
+
+                var jsonData = JsonConvert.SerializeObject(itemNames, Formatting.Indented);
+                File.WriteAllText(filePath, jsonData);
+                MessageBox.Show("JSON saved successfully.");
+                currentFilePath = filePath;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving JSON: {ex.Message}");
             }
         }
 
@@ -249,6 +270,45 @@ namespace json_editor_app
                     listBoxRepaints.DisplayMember = "Name";
                 }
             }
+        }
+
+        private void AddStringToItemNameButton_Click(object sender, EventArgs e)
+        {
+            var selectedIndex = listBoxItemNames.SelectedIndex;
+            if (selectedIndex >= 0)
+            {
+                var newItemName = Prompt.ShowDialog("Enter new item name:", "Add String to Item Names");
+                if (!string.IsNullOrWhiteSpace(newItemName))
+                {
+                    var selectedItemName = listBoxItemNames.SelectedItem.ToString();
+                    var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
+                    if (selectedItem != null)
+                    {
+                        selectedItem.ItemNames.Add(newItemName);
+                        bindingSourceItemNames.DataSource = itemNames.SelectMany(i => i.ItemNames).ToList();
+                    }
+                }
+            }
+        }
+
+        private void RefreshForm()
+        {
+            textBoxName.Clear();
+            textBoxOverwrittenDisplayName.Clear();
+            textBoxHiddenSelectionTextures.Clear();
+            textBoxHiddenSelectionMaterials.Clear();
+            textBoxPermissionGroups.Clear();
+            textBoxAttachmentItemNames.Clear();
+            textBoxAttachmentHiddenSelectionTextures.Clear();
+            textBoxAttachmentHiddenSelectionMaterials.Clear();
+            listBoxItemNames.ClearSelected();
+            listBoxRepaints.ClearSelected();
+            bindingSourceRepaints.DataSource = null;
+        }
+
+        private void TextBoxName_Leave(object sender, EventArgs e)
+        {
+            textBoxOverwrittenDisplayName.Text = $"$original$ ({textBoxName.Text})";
         }
     }
 }

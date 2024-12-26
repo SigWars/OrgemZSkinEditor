@@ -15,10 +15,12 @@ namespace json_editor_app
         private System.Windows.Forms.TextBox textBoxAttachmentHiddenSelectionMaterials;
         private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button saveAsButton;
         private System.Windows.Forms.Button addItemNameButton;
         private System.Windows.Forms.Button removeItemNameButton;
         private System.Windows.Forms.Button addRepaintButton;
         private System.Windows.Forms.Button removeRepaintButton;
+        private System.Windows.Forms.Button addStringToItemNameButton;
         private System.Windows.Forms.Label labelItemNames;
         private System.Windows.Forms.Label labelRepaints;
         private System.Windows.Forms.Label labelName;
@@ -53,10 +55,12 @@ namespace json_editor_app
             this.textBoxAttachmentHiddenSelectionMaterials = new System.Windows.Forms.TextBox();
             this.loadButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
+            this.saveAsButton = new System.Windows.Forms.Button();
             this.addItemNameButton = new System.Windows.Forms.Button();
             this.removeItemNameButton = new System.Windows.Forms.Button();
             this.addRepaintButton = new System.Windows.Forms.Button();
             this.removeRepaintButton = new System.Windows.Forms.Button();
+            this.addStringToItemNameButton = new System.Windows.Forms.Button();
             this.labelItemNames = new System.Windows.Forms.Label();
             this.labelRepaints = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
@@ -106,7 +110,7 @@ namespace json_editor_app
             this.textBoxHiddenSelectionTextures.Location = new System.Drawing.Point(424, 106);
             this.textBoxHiddenSelectionTextures.Multiline = true;
             this.textBoxHiddenSelectionTextures.Name = "textBoxHiddenSelectionTextures";
-            this.textBoxHiddenSelectionTextures.Size = new System.Drawing.Size(364, 60);
+            this.textBoxHiddenSelectionTextures.Size = new System.Drawing.Size(500, 60);
             this.textBoxHiddenSelectionTextures.TabIndex = 4;
             // 
             // textBoxHiddenSelectionMaterials
@@ -114,7 +118,7 @@ namespace json_editor_app
             this.textBoxHiddenSelectionMaterials.Location = new System.Drawing.Point(424, 186);
             this.textBoxHiddenSelectionMaterials.Multiline = true;
             this.textBoxHiddenSelectionMaterials.Name = "textBoxHiddenSelectionMaterials";
-            this.textBoxHiddenSelectionMaterials.Size = new System.Drawing.Size(364, 60);
+            this.textBoxHiddenSelectionMaterials.Size = new System.Drawing.Size(500, 60);
             this.textBoxHiddenSelectionMaterials.TabIndex = 5;
             // 
             // textBoxPermissionGroups
@@ -127,7 +131,7 @@ namespace json_editor_app
             // 
             // textBoxAttachmentItemNames
             // 
-            this.textBoxAttachmentItemNames.Location = new System.Drawing.Point(424, 426);
+            this.textBoxAttachmentItemNames.Location = new System.Drawing.Point(424, 346);
             this.textBoxAttachmentItemNames.Multiline = true;
             this.textBoxAttachmentItemNames.Name = "textBoxAttachmentItemNames";
             this.textBoxAttachmentItemNames.Size = new System.Drawing.Size(364, 60);
@@ -135,19 +139,18 @@ namespace json_editor_app
             // 
             // textBoxAttachmentHiddenSelectionTextures
             // 
-            this.textBoxAttachmentHiddenSelectionTextures.Location = new System.Drawing.Point(424, 506);
+            this.textBoxAttachmentHiddenSelectionTextures.Location = new System.Drawing.Point(424, 426);
             this.textBoxAttachmentHiddenSelectionTextures.Multiline = true;
             this.textBoxAttachmentHiddenSelectionTextures.Name = "textBoxAttachmentHiddenSelectionTextures";
-            this.textBoxAttachmentHiddenSelectionTextures.Size = new System.Drawing.Size(364, 60);
+            this.textBoxAttachmentHiddenSelectionTextures.Size = new System.Drawing.Size(500, 60);
             this.textBoxAttachmentHiddenSelectionTextures.TabIndex = 9;
             // 
             // textBoxAttachmentHiddenSelectionMaterials
             // 
-            this.textBoxAttachmentHiddenSelectionMaterials.Location = new System.Drawing.Point(424, 586);
+            this.textBoxAttachmentHiddenSelectionMaterials.Location = new System.Drawing.Point(424, 506);
             this.textBoxAttachmentHiddenSelectionMaterials.Multiline = true;
             this.textBoxAttachmentHiddenSelectionMaterials.Name = "textBoxAttachmentHiddenSelectionMaterials";
-            this.textBoxAttachmentHiddenSelectionMaterials.Size = new System.Drawing.Size(364, 60);
-            this.textBoxAttachmentHiddenSelectionMaterials.TabIndex = 10;
+            this.textBoxAttachmentHiddenSelectionMaterials.Size = new System.Drawing.Size(500, 60);
             // 
             // loadButton
             // 
@@ -161,7 +164,7 @@ namespace json_editor_app
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(713, 402);
+            this.saveButton.Location = new System.Drawing.Point(849, 402);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 12;
@@ -169,12 +172,22 @@ namespace json_editor_app
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // saveAsButton
+            // 
+            this.saveAsButton.Location = new System.Drawing.Point(849, 431);
+            this.saveAsButton.Name = "saveAsButton";
+            this.saveAsButton.Size = new System.Drawing.Size(75, 23);
+            this.saveAsButton.TabIndex = 13;
+            this.saveAsButton.Text = "Save As";
+            this.saveAsButton.UseVisualStyleBackColor = true;
+            this.saveAsButton.Click += new System.EventHandler(this.SaveAsButton_Click);
+            // 
             // addItemNameButton
             // 
             this.addItemNameButton.Location = new System.Drawing.Point(12, 431);
             this.addItemNameButton.Name = "addItemNameButton";
             this.addItemNameButton.Size = new System.Drawing.Size(75, 23);
-            this.addItemNameButton.TabIndex = 13;
+            this.addItemNameButton.TabIndex = 14;
             this.addItemNameButton.Text = "Add Item";
             this.addItemNameButton.UseVisualStyleBackColor = true;
             this.addItemNameButton.Click += new System.EventHandler(this.AddItemNameButton_Click);
@@ -184,7 +197,7 @@ namespace json_editor_app
             this.removeItemNameButton.Location = new System.Drawing.Point(93, 431);
             this.removeItemNameButton.Name = "removeItemNameButton";
             this.removeItemNameButton.Size = new System.Drawing.Size(119, 23);
-            this.removeItemNameButton.TabIndex = 14;
+            this.removeItemNameButton.TabIndex = 15;
             this.removeItemNameButton.Text = "Remove Item";
             this.removeItemNameButton.UseVisualStyleBackColor = true;
             this.removeItemNameButton.Click += new System.EventHandler(this.RemoveItemNameButton_Click);
@@ -194,7 +207,7 @@ namespace json_editor_app
             this.addRepaintButton.Location = new System.Drawing.Point(218, 402);
             this.addRepaintButton.Name = "addRepaintButton";
             this.addRepaintButton.Size = new System.Drawing.Size(75, 23);
-            this.addRepaintButton.TabIndex = 15;
+            this.addRepaintButton.TabIndex = 16;
             this.addRepaintButton.Text = "Add Repaint";
             this.addRepaintButton.UseVisualStyleBackColor = true;
             this.addRepaintButton.Click += new System.EventHandler(this.AddRepaintButton_Click);
@@ -204,10 +217,20 @@ namespace json_editor_app
             this.removeRepaintButton.Location = new System.Drawing.Point(299, 402);
             this.removeRepaintButton.Name = "removeRepaintButton";
             this.removeRepaintButton.Size = new System.Drawing.Size(119, 23);
-            this.removeRepaintButton.TabIndex = 16;
+            this.removeRepaintButton.TabIndex = 17;
             this.removeRepaintButton.Text = "Remove Repaint";
             this.removeRepaintButton.UseVisualStyleBackColor = true;
             this.removeRepaintButton.Click += new System.EventHandler(this.RemoveRepaintButton_Click);
+            // 
+            // addStringToItemNameButton
+            // 
+            this.addStringToItemNameButton.Location = new System.Drawing.Point(218, 431);
+            this.addStringToItemNameButton.Name = "addStringToItemNameButton";
+            this.addStringToItemNameButton.Size = new System.Drawing.Size(200, 23);
+            this.addStringToItemNameButton.TabIndex = 18;
+            this.addStringToItemNameButton.Text = "Add String to Item Names";
+            this.addStringToItemNameButton.UseVisualStyleBackColor = true;
+            this.addStringToItemNameButton.Click += new System.EventHandler(this.AddStringToItemNameButton_Click);
             // 
             // labelItemNames
             // 
@@ -215,7 +238,7 @@ namespace json_editor_app
             this.labelItemNames.Location = new System.Drawing.Point(12, 12);
             this.labelItemNames.Name = "labelItemNames";
             this.labelItemNames.Size = new System.Drawing.Size(64, 13);
-            this.labelItemNames.TabIndex = 17;
+            this.labelItemNames.TabIndex = 19;
             this.labelItemNames.Text = "Item Names";
             // 
             // labelRepaints
@@ -224,7 +247,7 @@ namespace json_editor_app
             this.labelRepaints.Location = new System.Drawing.Point(215, 12);
             this.labelRepaints.Name = "labelRepaints";
             this.labelRepaints.Size = new System.Drawing.Size(49, 13);
-            this.labelRepaints.TabIndex = 18;
+            this.labelRepaints.TabIndex = 20;
             this.labelRepaints.Text = "Repaints";
             // 
             // labelName
@@ -233,7 +256,7 @@ namespace json_editor_app
             this.labelName.Location = new System.Drawing.Point(421, 12);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(35, 13);
-            this.labelName.TabIndex = 19;
+            this.labelName.TabIndex = 21;
             this.labelName.Text = "Name";
             // 
             // labelOverwrittenDisplayName
@@ -242,7 +265,7 @@ namespace json_editor_app
             this.labelOverwrittenDisplayName.Location = new System.Drawing.Point(421, 51);
             this.labelOverwrittenDisplayName.Name = "labelOverwrittenDisplayName";
             this.labelOverwrittenDisplayName.Size = new System.Drawing.Size(128, 13);
-            this.labelOverwrittenDisplayName.TabIndex = 20;
+            this.labelOverwrittenDisplayName.TabIndex = 22;
             this.labelOverwrittenDisplayName.Text = "Overwritten Display Name";
             // 
             // labelHiddenSelectionTextures
@@ -251,7 +274,7 @@ namespace json_editor_app
             this.labelHiddenSelectionTextures.Location = new System.Drawing.Point(421, 90);
             this.labelHiddenSelectionTextures.Name = "labelHiddenSelectionTextures";
             this.labelHiddenSelectionTextures.Size = new System.Drawing.Size(128, 13);
-            this.labelHiddenSelectionTextures.TabIndex = 21;
+            this.labelHiddenSelectionTextures.TabIndex = 23;
             this.labelHiddenSelectionTextures.Text = "Hidden Selection Textures";
             // 
             // labelHiddenSelectionMaterials
@@ -260,7 +283,7 @@ namespace json_editor_app
             this.labelHiddenSelectionMaterials.Location = new System.Drawing.Point(421, 170);
             this.labelHiddenSelectionMaterials.Name = "labelHiddenSelectionMaterials";
             this.labelHiddenSelectionMaterials.Size = new System.Drawing.Size(133, 13);
-            this.labelHiddenSelectionMaterials.TabIndex = 22;
+            this.labelHiddenSelectionMaterials.TabIndex = 24;
             this.labelHiddenSelectionMaterials.Text = "Hidden Selection Materials";
             // 
             // labelPermissionGroups
@@ -269,39 +292,39 @@ namespace json_editor_app
             this.labelPermissionGroups.Location = new System.Drawing.Point(421, 250);
             this.labelPermissionGroups.Name = "labelPermissionGroups";
             this.labelPermissionGroups.Size = new System.Drawing.Size(95, 13);
-            this.labelPermissionGroups.TabIndex = 23;
+            this.labelPermissionGroups.TabIndex = 25;
             this.labelPermissionGroups.Text = "Permission Groups";
             // 
             // labelAttachmentItemNames
             // 
             this.labelAttachmentItemNames.AutoSize = true;
-            this.labelAttachmentItemNames.Location = new System.Drawing.Point(421, 410);
+            this.labelAttachmentItemNames.Location = new System.Drawing.Point(421, 330);
             this.labelAttachmentItemNames.Name = "labelAttachmentItemNames";
             this.labelAttachmentItemNames.Size = new System.Drawing.Size(128, 13);
-            this.labelAttachmentItemNames.TabIndex = 25;
+            this.labelAttachmentItemNames.TabIndex = 26;
             this.labelAttachmentItemNames.Text = "Attachment Item Names";
             // 
             // labelAttachmentHiddenSelectionTextures
             // 
             this.labelAttachmentHiddenSelectionTextures.AutoSize = true;
-            this.labelAttachmentHiddenSelectionTextures.Location = new System.Drawing.Point(421, 490);
+            this.labelAttachmentHiddenSelectionTextures.Location = new System.Drawing.Point(421, 410);
             this.labelAttachmentHiddenSelectionTextures.Name = "labelAttachmentHiddenSelectionTextures";
             this.labelAttachmentHiddenSelectionTextures.Size = new System.Drawing.Size(167, 13);
-            this.labelAttachmentHiddenSelectionTextures.TabIndex = 26;
+            this.labelAttachmentHiddenSelectionTextures.TabIndex = 27;
             this.labelAttachmentHiddenSelectionTextures.Text = "Attachment Hidden Selection Textures";
             // 
             // labelAttachmentHiddenSelectionMaterials
             // 
             this.labelAttachmentHiddenSelectionMaterials.AutoSize = true;
-            this.labelAttachmentHiddenSelectionMaterials.Location = new System.Drawing.Point(421, 570);
+            this.labelAttachmentHiddenSelectionMaterials.Location = new System.Drawing.Point(421, 490);
             this.labelAttachmentHiddenSelectionMaterials.Name = "labelAttachmentHiddenSelectionMaterials";
             this.labelAttachmentHiddenSelectionMaterials.Size = new System.Drawing.Size(172, 13);
-            this.labelAttachmentHiddenSelectionMaterials.TabIndex = 27;
+            this.labelAttachmentHiddenSelectionMaterials.TabIndex = 28;
             this.labelAttachmentHiddenSelectionMaterials.Text = "Attachment Hidden Selection Materials";
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(800, 700);
+            this.ClientSize = new System.Drawing.Size(950, 600);
             this.Controls.Add(this.labelAttachmentHiddenSelectionMaterials);
             this.Controls.Add(this.labelAttachmentHiddenSelectionTextures);
             this.Controls.Add(this.labelAttachmentItemNames);
@@ -312,10 +335,12 @@ namespace json_editor_app
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.labelRepaints);
             this.Controls.Add(this.labelItemNames);
+            this.Controls.Add(this.addStringToItemNameButton);
             this.Controls.Add(this.removeRepaintButton);
             this.Controls.Add(this.addRepaintButton);
             this.Controls.Add(this.removeItemNameButton);
             this.Controls.Add(this.addItemNameButton);
+            this.Controls.Add(this.saveAsButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.loadButton);
             this.Controls.Add(this.textBoxAttachmentHiddenSelectionMaterials);
@@ -330,8 +355,10 @@ namespace json_editor_app
             this.Controls.Add(this.listBoxItemNames);
             this.Name = "MainForm";
             this.Text = "JSON Editor";
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ResumeLayout(false);
             this.PerformLayout();
         }
     }
 }
+

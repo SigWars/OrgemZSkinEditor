@@ -5,6 +5,7 @@ D:\C#\SkinEditor\json-editor-app\obj\Debug\net6.0-windows\json-editor-app.Genera
 D:\C#\SkinEditor\json-editor-app\obj\Debug\net6.0-windows\json-editor-app.AssemblyInfoInputs.cache
 D:\C#\SkinEditor\json-editor-app\obj\Debug\net6.0-windows\json-editor-app.AssemblyInfo.cs
 D:\C#\SkinEditor\json-editor-app\obj\Debug\net6.0-windows\json-editor-app.csproj.CoreCompileInputs.cache
+D:\C#\SkinEditor\json-editor-app\obj\Debug\net6.0-windows\json-editor-app.sourcelink.json
 D:\C#\SkinEditor\json-editor-app\bin\Debug\net6.0-windows\json-editor-app.exe
 D:\C#\SkinEditor\json-editor-app\bin\Debug\net6.0-windows\json-editor-app.deps.json
 D:\C#\SkinEditor\json-editor-app\bin\Debug\net6.0-windows\json-editor-app.runtimeconfig.json
@@ -17,4 +18,3 @@ D:\C#\SkinEditor\json-editor-app\obj\Debug\net6.0-windows\refint\json-editor-app
 D:\C#\SkinEditor\json-editor-app\obj\Debug\net6.0-windows\json-editor-app.pdb
 D:\C#\SkinEditor\json-editor-app\obj\Debug\net6.0-windows\json-editor-app.genruntimeconfig.cache
 D:\C#\SkinEditor\json-editor-app\obj\Debug\net6.0-windows\ref\json-editor-app.dll
-D:\C#\SkinEditor\json-editor-app\obj\Debug\net6.0-windows\json-editor-app.sourcelink.json
