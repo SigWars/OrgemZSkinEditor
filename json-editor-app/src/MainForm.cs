@@ -296,6 +296,86 @@ namespace json_editor_app
             }
         }
 
+        private void MoveRepaintButton_Click(object sender, EventArgs e)
+        {
+            var selectedItemIndex = listBoxItemNames.SelectedIndex;
+            var selectedRepaintIndex = listBoxRepaints.SelectedIndex;
+            if (selectedItemIndex >= 0 && selectedRepaintIndex >= 0)
+            {
+                var selectedItemName = listBoxItemNames.SelectedItem.ToString();
+                var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
+                if (selectedItem != null && selectedRepaintIndex < selectedItem.Repaints.Count)
+                {
+                    var repaint = selectedItem.Repaints[selectedRepaintIndex];
+                    var itemNamesList = itemNames.SelectMany(i => i.ItemNames).ToList();
+                    using (var dialog = new MoveCopyDialog(itemNamesList))
+                    {
+                        if (dialog.ShowDialog() == DialogResult.OK)
+                        {
+                            var targetItemName = dialog.SelectedItemName;
+                            var targetItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(targetItemName));
+                            if (targetItem != null)
+                            {
+                                targetItem.Repaints.Add(repaint);
+                                selectedItem.Repaints.RemoveAt(selectedRepaintIndex);
+                                bindingSourceRepaints.DataSource = selectedItem.Repaints;
+                                listBoxRepaints.DataSource = null;
+                                listBoxRepaints.DataSource = bindingSourceRepaints;
+                                listBoxRepaints.DisplayMember = "Name";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CopyRepaintButton_Click(object sender, EventArgs e)
+        {
+            var selectedItemIndex = listBoxItemNames.SelectedIndex;
+            var selectedRepaintIndex = listBoxRepaints.SelectedIndex;
+            if (selectedItemIndex >= 0 && selectedRepaintIndex >= 0)
+            {
+                var selectedItemName = listBoxItemNames.SelectedItem.ToString();
+                var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
+                if (selectedItem != null && selectedRepaintIndex < selectedItem.Repaints.Count)
+                {
+                    var repaint = selectedItem.Repaints[selectedRepaintIndex];
+                    var itemNamesList = itemNames.SelectMany(i => i.ItemNames).ToList();
+                    using (var dialog = new MoveCopyDialog(itemNamesList))
+                    {
+                        if (dialog.ShowDialog() == DialogResult.OK)
+                        {
+                            var targetItemName = dialog.SelectedItemName;
+                            var targetItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(targetItemName));
+                            if (targetItem != null)
+                            {
+                                var newRepaint = new Repaint
+                                {
+                                    Name = repaint.Name,
+                                    OverwrittenDisplayName = repaint.OverwrittenDisplayName,
+                                    HiddenSelectionTextures = new List<string>(repaint.HiddenSelectionTextures),
+                                    HiddenSelectionMaterials = new List<string>(repaint.HiddenSelectionMaterials),
+                                    PermissionGroups = new List<string>(repaint.PermissionGroups),
+                                    Attachments = repaint.Attachments.Select(a => new Attachment
+                                    {
+                                        ItemNames = new List<string>(a.ItemNames),
+                                        HiddenSelectionTextures = new List<string>(a.HiddenSelectionTextures),
+                                        HiddenSelectionMaterials = new List<string>(a.HiddenSelectionMaterials)
+                                    }).ToList()
+                                };
+                                targetItem.Repaints.Add(newRepaint);
+                                bindingSourceRepaints.DataSource = selectedItem.Repaints;
+                                listBoxRepaints.DataSource = null;
+                                listBoxRepaints.DataSource = bindingSourceRepaints;
+                                listBoxRepaints.DisplayMember = "Name";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
         private void RefreshForm()
         {
             textBoxName.Clear();
@@ -325,7 +405,8 @@ namespace json_editor_app
             var selectedItemObj = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
             if (selectedItemObj != null)
             {
-                bindingSourceItemNames.DataSource = selectedItemObj.ItemNames;
+                var filteredItemNames = selectedItemObj.ItemNames.Where(name => !name.StartsWith("--")).ToList();
+                bindingSourceItemNames.DataSource = filteredItemNames;
                 listBoxItemNames.DataSource = bindingSourceItemNames;
             }
         }

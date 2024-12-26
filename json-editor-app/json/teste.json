@@ -109,12 +109,63 @@
   },
   {
     "ItemNames": [
-      "--Vests"
+      "-- Vests",
+      "Vest_Base"
     ],
     "Repaints": [
       {
-        "Name": "Green",
-        "OverwrittenDisplayName": "$original$ (Green)",
+        "Name": "Red",
+        "OverwrittenDisplayName": "$original$ (White)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [
+          "Admins",
+          "Players"
+        ],
+        "Attachments": [
+          {
+            "ItemNames": [
+              "Attach1",
+              "Attach2"
+            ],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ItemNames": [
+      "-- Clothing",
+      "Clothing_Base"
+    ],
+    "Repaints": [
+      {
+        "Name": "Wine",
+        "OverwrittenDisplayName": "$original$ (Wine)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Black_Skin",
+        "OverwrittenDisplayName": "$original$ (Black_Skin)",
         "HiddenSelectionTextures": [
           "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
           "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
@@ -131,11 +182,5 @@
         ]
       }
     ]
-  },
-  {
-    "ItemNames": [
-      "-- Clothing"
-    ],
-    "Repaints": []
   }
 ]

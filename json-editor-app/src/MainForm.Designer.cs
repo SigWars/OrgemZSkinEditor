@@ -23,6 +23,8 @@ namespace json_editor_app
         private System.Windows.Forms.Button addRepaintButton;
         private System.Windows.Forms.Button removeRepaintButton;
         private System.Windows.Forms.Button addStringToItemNameButton;
+        private System.Windows.Forms.Button moveRepaintButton; // Adicionado botão de mover
+        private System.Windows.Forms.Button copyRepaintButton; // Adicionado botão de copiar
         private System.Windows.Forms.Label labelItemNames;
         private System.Windows.Forms.Label labelRepaints;
         private System.Windows.Forms.Label labelName;
@@ -64,6 +66,8 @@ namespace json_editor_app
             this.addRepaintButton = new System.Windows.Forms.Button();
             this.removeRepaintButton = new System.Windows.Forms.Button();
             this.addStringToItemNameButton = new System.Windows.Forms.Button();
+            this.moveRepaintButton = new System.Windows.Forms.Button(); // Adicionado botão de mover
+            this.copyRepaintButton = new System.Windows.Forms.Button(); // Adicionado botão de copiar
             this.labelItemNames = new System.Windows.Forms.Label();
             this.labelRepaints = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
@@ -244,6 +248,26 @@ namespace json_editor_app
             this.removeRepaintButton.UseVisualStyleBackColor = true;
             this.removeRepaintButton.Click += new System.EventHandler(this.RemoveRepaintButton_Click);
             // 
+            // moveRepaintButton
+            // 
+            this.moveRepaintButton.Location = new System.Drawing.Point(218, 570);
+            this.moveRepaintButton.Name = "moveRepaintButton";
+            this.moveRepaintButton.Size = new System.Drawing.Size(100, 23);
+            this.moveRepaintButton.TabIndex = 30;
+            this.moveRepaintButton.Text = "Move Skin";
+            this.moveRepaintButton.UseVisualStyleBackColor = true;
+            this.moveRepaintButton.Click += new System.EventHandler(this.MoveRepaintButton_Click);
+            // 
+            // copyRepaintButton
+            // 
+            this.copyRepaintButton.Location = new System.Drawing.Point(320, 570);
+            this.copyRepaintButton.Name = "copyRepaintButton";
+            this.copyRepaintButton.Size = new System.Drawing.Size(100, 23);
+            this.copyRepaintButton.TabIndex = 31;
+            this.copyRepaintButton.Text = "Copy Skin";
+            this.copyRepaintButton.UseVisualStyleBackColor = true;
+            this.copyRepaintButton.Click += new System.EventHandler(this.CopyRepaintButton_Click);
+            // 
             // labelItemNames
             // 
             this.labelItemNames.AutoSize = true;
@@ -356,6 +380,8 @@ namespace json_editor_app
             this.Controls.Add(this.saveAsButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.loadButton);
+            this.Controls.Add(this.moveRepaintButton); // Adicionado botão de mover
+            this.Controls.Add(this.copyRepaintButton); // Adicionado botão de copiar
             this.Controls.Add(this.textBoxAttachmentHiddenSelectionMaterials);
             this.Controls.Add(this.textBoxAttachmentHiddenSelectionTextures);
             this.Controls.Add(this.textBoxAttachmentItemNames);
@@ -377,4 +403,5 @@ namespace json_editor_app
         }
     }
 }
+
 
