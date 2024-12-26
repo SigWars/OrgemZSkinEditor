@@ -1,7 +1,6 @@
 [
   {
     "ItemNames": [
-      "-- Explosivos",
       "Explosive"
     ],
     "Repaints": [
@@ -51,7 +50,6 @@
   },
   {
     "ItemNames": [
-      "-- Weapons",
       "Barrel_Base"
     ],
     "Repaints": [
@@ -109,7 +107,6 @@
   },
   {
     "ItemNames": [
-      "-- Vests",
       "Vest_Base"
     ],
     "Repaints": [
@@ -183,7 +180,6 @@
   },
   {
     "ItemNames": [
-      "-- Clothing",
       "Clothing_Base"
     ],
     "Repaints": [

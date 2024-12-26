@@ -153,6 +153,45 @@ namespace json_editor_app
             }
         }
 
+        private void SaveFinalVersionButton_Click(object sender, EventArgs e)
+        {
+            using (var saveFileDialog = new System.Windows.Forms.SaveFileDialog())
+            {
+                saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Salva o arquivo carregado
+                    SaveToFile(currentFilePath);
+                    // Salva o arquivo sem --
+                    SaveFinalVersionToFile(saveFileDialog.FileName);
+                }
+            }
+        }
+
+        private void SaveFinalVersionToFile(string filePath)
+        {
+            try
+            {
+                var finalItemNames = itemNames
+                    .Select(i => new ItemName
+                    {
+                        ItemNames = i.ItemNames.Where(name => !name.StartsWith("--")).ToList(),
+                        Repaints = i.Repaints
+                    })
+                    .Where(i => i.ItemNames.Count > 0)
+                    .ToList();
+
+                var jsonData = JsonConvert.SerializeObject(finalItemNames, Formatting.Indented);
+                File.WriteAllText(filePath, jsonData);
+                MessageBox.Show("Final version JSON saved successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving final version JSON: {ex.Message}");
+            }
+        }
+
         private void ListBoxItemNames_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedIndex = listBoxItemNames.SelectedIndex;
@@ -374,7 +413,6 @@ namespace json_editor_app
                 }
             }
         }
-
 
         private void RefreshForm()
         {

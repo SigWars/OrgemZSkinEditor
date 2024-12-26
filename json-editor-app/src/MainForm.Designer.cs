@@ -25,6 +25,7 @@ namespace json_editor_app
         private System.Windows.Forms.Button addStringToItemNameButton;
         private System.Windows.Forms.Button moveRepaintButton; // Adicionado botão de mover
         private System.Windows.Forms.Button copyRepaintButton; // Adicionado botão de copiar
+        private System.Windows.Forms.Button saveFinalVersionButton; // Adicionado botão de salvar versão final
         private System.Windows.Forms.Label labelItemNames;
         private System.Windows.Forms.Label labelRepaints;
         private System.Windows.Forms.Label labelName;
@@ -68,6 +69,7 @@ namespace json_editor_app
             this.addStringToItemNameButton = new System.Windows.Forms.Button();
             this.moveRepaintButton = new System.Windows.Forms.Button(); // Adicionado botão de mover
             this.copyRepaintButton = new System.Windows.Forms.Button(); // Adicionado botão de copiar
+            this.saveFinalVersionButton = new System.Windows.Forms.Button(); // Adicionado botão de salvar versão final
             this.labelItemNames = new System.Windows.Forms.Label();
             this.labelRepaints = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
@@ -268,6 +270,16 @@ namespace json_editor_app
             this.copyRepaintButton.UseVisualStyleBackColor = true;
             this.copyRepaintButton.Click += new System.EventHandler(this.CopyRepaintButton_Click);
             // 
+            // saveFinalVersionButton
+            // 
+            this.saveFinalVersionButton.Location = new System.Drawing.Point(430, 570);
+            this.saveFinalVersionButton.Name = "saveFinalVersionButton";
+            this.saveFinalVersionButton.Size = new System.Drawing.Size(100, 23);
+            this.saveFinalVersionButton.TabIndex = 32;
+            this.saveFinalVersionButton.Text = "Save Final Version";
+            this.saveFinalVersionButton.UseVisualStyleBackColor = true;
+            this.saveFinalVersionButton.Click += new System.EventHandler(this.SaveFinalVersionButton_Click);
+            // 
             // labelItemNames
             // 
             this.labelItemNames.AutoSize = true;
@@ -382,6 +394,7 @@ namespace json_editor_app
             this.Controls.Add(this.loadButton);
             this.Controls.Add(this.moveRepaintButton); // Adicionado botão de mover
             this.Controls.Add(this.copyRepaintButton); // Adicionado botão de copiar
+            this.Controls.Add(this.saveFinalVersionButton); // Adicionado botão de salvar versão final
             this.Controls.Add(this.textBoxAttachmentHiddenSelectionMaterials);
             this.Controls.Add(this.textBoxAttachmentHiddenSelectionTextures);
             this.Controls.Add(this.textBoxAttachmentItemNames);
@@ -403,5 +416,4 @@ namespace json_editor_app
         }
     }
 }
-
 
