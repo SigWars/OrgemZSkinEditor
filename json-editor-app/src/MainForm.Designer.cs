@@ -28,6 +28,8 @@ namespace json_editor_app
         private System.Windows.Forms.Button moveRepaintButton; // Adicionado botão de mover
         private System.Windows.Forms.Button copyRepaintButton; // Adicionado botão de copiar
         private System.Windows.Forms.Button saveFinalVersionButton; // Adicionado botão de salvar versão final
+        private System.Windows.Forms.Button moveItemButton; // Adicionado botão de mover item
+        private System.Windows.Forms.Button copyItemButton; // Adicionado botão de copiar item
         private System.Windows.Forms.Label labelItemNames;
         private System.Windows.Forms.Label labelRepaints;
         private System.Windows.Forms.Label labelName;
@@ -75,6 +77,8 @@ namespace json_editor_app
             this.moveRepaintButton = new System.Windows.Forms.Button(); // Adicionado botão de mover
             this.copyRepaintButton = new System.Windows.Forms.Button(); // Adicionado botão de copiar
             this.saveFinalVersionButton = new System.Windows.Forms.Button(); // Adicionado botão de salvar versão final
+            this.moveItemButton = new System.Windows.Forms.Button(); // Adicionado botão de mover item
+            this.copyItemButton = new System.Windows.Forms.Button(); // Adicionado botão de copiar item
             this.labelItemNames = new System.Windows.Forms.Label();
             this.labelRepaints = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
@@ -103,6 +107,7 @@ namespace json_editor_app
             this.listBoxItemNames.FormattingEnabled = true;
             this.listBoxItemNames.Location = new System.Drawing.Point(12, 50);
             this.listBoxItemNames.Name = "listBoxItemNames";
+            this.listBoxItemNames.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended; // Permitir múltiplas seleções
             this.listBoxItemNames.Size = new System.Drawing.Size(200, 498);
             this.listBoxItemNames.TabIndex = 0;
             this.listBoxItemNames.SelectedIndexChanged += new System.EventHandler(this.ListBoxItemNames_SelectedIndexChanged);
@@ -309,11 +314,30 @@ namespace json_editor_app
             this.saveFinalVersionButton.UseVisualStyleBackColor = true;
             this.saveFinalVersionButton.Click += new System.EventHandler(this.SaveFinalVersionButton_Click);
             // 
+            // moveItemButton
+            // 
+            this.moveItemButton.Location = new System.Drawing.Point(12, 600);
+            this.moveItemButton.Name = "moveItemButton";
+            this.moveItemButton.Size = new System.Drawing.Size(90, 23);
+            this.moveItemButton.TabIndex = 34;
+            this.moveItemButton.Text = "Mover Item";
+            this.moveItemButton.UseVisualStyleBackColor = true;
+            this.moveItemButton.Click += new System.EventHandler(this.MoveItemButton_Click);
+            // 
+            // copyItemButton
+            // 
+            this.copyItemButton.Location = new System.Drawing.Point(120, 600);
+            this.copyItemButton.Name = "copyItemButton";
+            this.copyItemButton.Size = new System.Drawing.Size(90, 23);
+            this.copyItemButton.TabIndex = 35;
+            this.copyItemButton.Text = "Copiar Item";
+            this.copyItemButton.UseVisualStyleBackColor = true;
+            this.copyItemButton.Click += new System.EventHandler(this.CopyItemButton_Click);
+            // 
             // labelItemNames
             // 
             this.labelItemNames.AutoSize = true;
             this.labelItemNames.Location = new System.Drawing.Point(12, 34);
-            this.labelItemNames.Name = "labelItemNames";
             this.labelItemNames.Size = new System.Drawing.Size(64, 13);
             this.labelItemNames.TabIndex = 19;
             this.labelItemNames.Text = "Item Names";
@@ -411,6 +435,8 @@ namespace json_editor_app
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(950, 700);
+            this.Controls.Add(this.moveItemButton); // Adicionado botão de mover item
+            this.Controls.Add(this.copyItemButton); // Adicionado botão de copiar item
             this.Controls.Add(this.comboBoxItemNames); // Adicionado ComboBox
             this.Controls.Add(this.labelAttachmentHiddenSelectionMaterials);
             this.Controls.Add(this.labelAttachmentHiddenSelectionTextures);

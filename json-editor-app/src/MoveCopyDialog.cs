@@ -7,6 +7,7 @@ namespace json_editor_app
     public partial class MoveCopyDialog : Form
     {
         public string SelectedItemName { get; private set; }
+        public bool IsMove { get; private set; }
 
         public MoveCopyDialog(List<string> itemNames)
         {

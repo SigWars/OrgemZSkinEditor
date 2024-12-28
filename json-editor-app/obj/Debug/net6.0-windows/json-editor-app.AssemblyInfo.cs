@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("json-editor-app")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7276ef6c103c48f4458362e588e3d5f3bc533839")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b450d13b2b42f181216882cab22286f74324180f")]
 [assembly: System.Reflection.AssemblyProductAttribute("json-editor-app")]
 [assembly: System.Reflection.AssemblyTitleAttribute("json-editor-app")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

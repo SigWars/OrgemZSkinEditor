@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using json_editor_app.Models;
 using Newtonsoft.Json.Serialization;
+using System.Windows.Controls;
 
 namespace json_editor_app
 {
@@ -22,6 +23,99 @@ namespace json_editor_app
             textBoxName.Leave += TextBoxName_Leave;
             LoadItemNamesToComboBox(); // Carregar itens na ComboBox ao inicializar o formulário
         }
+
+        private void MoveItemButton_Click(object sender, EventArgs e)
+        {
+            var selectedIndices = listBoxItemNames.SelectedIndices;
+            if (selectedIndices.Count > 0)
+            {
+                var selectedItems = selectedIndices.Cast<int>().Select(index => listBoxItemNames.Items[index].ToString()).ToList();
+                var itemNamesList = itemNames.SelectMany(i => i.ItemNames).ToList();
+                using (var dialog = new MoveCopyDialog(itemNamesList))
+                {
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        var targetItemName = dialog.SelectedItemName;
+                        var targetItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(targetItemName));
+                        if (targetItem != null)
+                        {
+                            foreach (var selectedItemName in selectedItems)
+                            {
+                                var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
+                                if (selectedItem != null)
+                                {
+                                    // Mover o item
+                                    targetItem.ItemNames.Add(selectedItemName);
+                                    selectedItem.ItemNames.Remove(selectedItemName);
+                                    if (selectedItem.ItemNames.Count == 0)
+                                    {
+                                        itemNames.Remove(selectedItem);
+                                    }
+
+                                    // Copiar todos os repaints para o novo item
+                                    targetItem.Repaints.AddRange(selectedItem.Repaints);
+                                }
+                            }
+
+                            bindingSourceItemNames.DataSource = itemNames.SelectMany(i => i.ItemNames).ToList();
+                            LoadItemNamesToComboBox(); // Atualizar ComboBox após mover itens
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CopyItemButton_Click(object sender, EventArgs e)
+        {
+            var selectedIndices = listBoxItemNames.SelectedIndices;
+            if (selectedIndices.Count > 0)
+            {
+                var selectedItems = selectedIndices.Cast<int>().Select(index => listBoxItemNames.Items[index].ToString()).ToList();
+                var itemNamesList = itemNames.SelectMany(i => i.ItemNames).ToList();
+                using (var dialog = new MoveCopyDialog(itemNamesList))
+                {
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        var targetItemName = dialog.SelectedItemName;
+                        var targetItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(targetItemName));
+                        if (targetItem != null)
+                        {
+                            foreach (var selectedItemName in selectedItems)
+                            {
+                                var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
+                                if (selectedItem != null)
+                                {
+                                    // Copiar o item
+                                    targetItem.ItemNames.Add(selectedItemName);
+
+                                    // Copiar todos os repaints para o novo item
+                                    targetItem.Repaints.AddRange(selectedItem.Repaints.Select(r => new Repaint
+                                    {
+                                        Name = r.Name,
+                                        OverwrittenDisplayName = r.OverwrittenDisplayName,
+                                        ExcludedItems = new List<string>(r.ExcludedItems),
+                                        HiddenSelectionTextures = new List<string>(r.HiddenSelectionTextures),
+                                        HiddenSelectionMaterials = new List<string>(r.HiddenSelectionMaterials),
+                                        PermissionGroups = new List<string>(r.PermissionGroups),
+                                        Attachments = r.Attachments.Select(a => new Attachment
+                                        {
+                                            ItemNames = new List<string>(a.ItemNames),
+                                            HiddenSelectionTextures = new List<string>(a.HiddenSelectionTextures),
+                                            HiddenSelectionMaterials = new List<string>(a.HiddenSelectionMaterials)
+                                        }).ToList()
+                                    }));
+                                }
+                            }
+
+                            bindingSourceItemNames.DataSource = itemNames.SelectMany(i => i.ItemNames).ToList();
+                            LoadItemNamesToComboBox(); // Atualizar ComboBox após copiar itens
+                        }
+                    }
+                }
+            }
+        }
+
+        // Código existente...
 
         private void LoadButton_Click(object sender, EventArgs e)
         {
@@ -509,4 +603,5 @@ namespace json_editor_app
         }
     }
 }
+
 
