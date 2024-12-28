@@ -17,6 +17,10 @@ namespace json_editor_app
         private System.Windows.Forms.TextBox textBoxAttachmentHiddenSelectionTextures;
         private System.Windows.Forms.TextBox textBoxAttachmentHiddenSelectionMaterials;
         private System.Windows.Forms.Button loadButton;
+        private System.Windows.Forms.Button loadHiddenSelectionTextButton;
+        private System.Windows.Forms.Button loadHiddenSelectionMaterialsButton; // Adicionado botão para textBoxHiddenSelectionMaterials
+        private System.Windows.Forms.Button loadAttachmentHiddenSelectionTexturesButton; // Adicionado botão para textBoxAttachmentHiddenSelectionTextures
+        private System.Windows.Forms.Button loadAttachmentHiddenSelectionMaterialsButton; // Adicionado botão para textBoxAttachmentHiddenSelectionMaterials
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button saveAsButton;
         private System.Windows.Forms.Button addItemNameButton;
@@ -24,12 +28,17 @@ namespace json_editor_app
         private System.Windows.Forms.Button addRepaintButton;
         private System.Windows.Forms.Button removeRepaintButton;
         private System.Windows.Forms.Button addStringToItemNameButton;
+        private System.Windows.Forms.Button renameRepaintButton;
         private System.Windows.Forms.Button renameItemNameButton; // Adicionado botão de renomear
         private System.Windows.Forms.Button moveRepaintButton; // Adicionado botão de mover
         private System.Windows.Forms.Button copyRepaintButton; // Adicionado botão de copiar
         private System.Windows.Forms.Button saveFinalVersionButton; // Adicionado botão de salvar versão final
         private System.Windows.Forms.Button moveItemButton; // Adicionado botão de mover item
         private System.Windows.Forms.Button copyItemButton; // Adicionado botão de copiar item
+        private System.Windows.Forms.Button moveItemUpButton; // Adicionado botão de mover item para cima
+        private System.Windows.Forms.Button moveItemDownButton; // Adicionado botão de mover item para baixo
+        private System.Windows.Forms.Button moveRepaintUpButton; // Adicionado botão de mover repaint para cima
+        private System.Windows.Forms.Button moveRepaintDownButton; // Adicionado botão de mover repaint para baixo
         private System.Windows.Forms.Label labelItemNames;
         private System.Windows.Forms.Label labelRepaints;
         private System.Windows.Forms.Label labelName;
@@ -66,6 +75,10 @@ namespace json_editor_app
             this.textBoxAttachmentHiddenSelectionTextures = new System.Windows.Forms.TextBox();
             this.textBoxAttachmentHiddenSelectionMaterials = new System.Windows.Forms.TextBox();
             this.loadButton = new System.Windows.Forms.Button();
+            this.loadHiddenSelectionTextButton = new System.Windows.Forms.Button();
+            this.loadHiddenSelectionMaterialsButton = new System.Windows.Forms.Button(); // Adicionado botão para textBoxHiddenSelectionMaterials
+            this.loadAttachmentHiddenSelectionTexturesButton = new System.Windows.Forms.Button(); // Adicionado botão para textBoxAttachmentHiddenSelectionTextures
+            this.loadAttachmentHiddenSelectionMaterialsButton = new System.Windows.Forms.Button(); // Adicionado botão para textBoxAttachmentHiddenSelectionMaterials
             this.saveButton = new System.Windows.Forms.Button();
             this.saveAsButton = new System.Windows.Forms.Button();
             this.addItemNameButton = new System.Windows.Forms.Button();
@@ -73,12 +86,17 @@ namespace json_editor_app
             this.addRepaintButton = new System.Windows.Forms.Button();
             this.removeRepaintButton = new System.Windows.Forms.Button();
             this.addStringToItemNameButton = new System.Windows.Forms.Button();
-            this.renameItemNameButton = new System.Windows.Forms.Button(); // Adicionado botão de renomear
+            this.renameItemNameButton = new System.Windows.Forms.Button();
+            this.renameRepaintButton = new System.Windows.Forms.Button(); // Adicionado botão de renomear
             this.moveRepaintButton = new System.Windows.Forms.Button(); // Adicionado botão de mover
             this.copyRepaintButton = new System.Windows.Forms.Button(); // Adicionado botão de copiar
             this.saveFinalVersionButton = new System.Windows.Forms.Button(); // Adicionado botão de salvar versão final
             this.moveItemButton = new System.Windows.Forms.Button(); // Adicionado botão de mover item
             this.copyItemButton = new System.Windows.Forms.Button(); // Adicionado botão de copiar item
+            this.moveItemUpButton = new System.Windows.Forms.Button(); // Adicionado botão de mover item para cima
+            this.moveItemDownButton = new System.Windows.Forms.Button(); // Adicionado botão de mover item para baixo
+            this.moveRepaintUpButton = new System.Windows.Forms.Button(); // Adicionado botão de mover repaint para cima
+            this.moveRepaintDownButton = new System.Windows.Forms.Button(); // Adicionado botão de mover repaint para baixo
             this.labelItemNames = new System.Windows.Forms.Label();
             this.labelRepaints = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
@@ -117,6 +135,7 @@ namespace json_editor_app
             this.listBoxRepaints.FormattingEnabled = true;
             this.listBoxRepaints.Location = new System.Drawing.Point(218, 28);
             this.listBoxRepaints.Name = "listBoxRepaints";
+            this.listBoxRepaints.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended; // Permitir múltiplas seleções
             this.listBoxRepaints.Size = new System.Drawing.Size(200, 520);
             this.listBoxRepaints.TabIndex = 1;
             this.listBoxRepaints.SelectedIndexChanged += new System.EventHandler(this.ListBoxRepaints_SelectedIndexChanged);
@@ -151,6 +170,17 @@ namespace json_editor_app
             this.textBoxHiddenSelectionTextures.Size = new System.Drawing.Size(500, 60);
             this.textBoxHiddenSelectionTextures.TabIndex = 5;
             // 
+            // loadHiddenSelectionTextButton
+            // 
+            this.loadHiddenSelectionTextButton = new System.Windows.Forms.Button();
+            this.loadHiddenSelectionTextButton.Location = new System.Drawing.Point(875, 162); // Ajuste a posição conforme necessário
+            this.loadHiddenSelectionTextButton.Name = "loadHiddenSelectionTextButton";
+            this.loadHiddenSelectionTextButton.Size = new System.Drawing.Size(50, 23);
+            this.loadHiddenSelectionTextButton.TabIndex = 40;
+            this.loadHiddenSelectionTextButton.Text = "Load";
+            this.loadHiddenSelectionTextButton.UseVisualStyleBackColor = true;
+            this.loadHiddenSelectionTextButton.Click += new System.EventHandler(this.LoadHiddenSelectionTextButton_Click);
+            // 
             // textBoxHiddenSelectionMaterials
             // 
             this.textBoxHiddenSelectionMaterials.Location = new System.Drawing.Point(424, 266);
@@ -158,6 +188,17 @@ namespace json_editor_app
             this.textBoxHiddenSelectionMaterials.Name = "textBoxHiddenSelectionMaterials";
             this.textBoxHiddenSelectionMaterials.Size = new System.Drawing.Size(500, 60);
             this.textBoxHiddenSelectionMaterials.TabIndex = 6;
+            // 
+            // loadHiddenSelectionMaterialsButton
+            // 
+            this.loadHiddenSelectionMaterialsButton = new System.Windows.Forms.Button();
+            this.loadHiddenSelectionMaterialsButton.Location = new System.Drawing.Point(875, 242); // Ajuste a posição conforme necessário
+            this.loadHiddenSelectionMaterialsButton.Name = "loadHiddenSelectionMaterialsButton";
+            this.loadHiddenSelectionMaterialsButton.Size = new System.Drawing.Size(50, 23);
+            this.loadHiddenSelectionMaterialsButton.TabIndex = 41;
+            this.loadHiddenSelectionMaterialsButton.Text = "Load";
+            this.loadHiddenSelectionMaterialsButton.UseVisualStyleBackColor = true;
+            this.loadHiddenSelectionMaterialsButton.Click += new System.EventHandler(this.LoadHiddenSelectionMaterialsButton_Click);
             // 
             // textBoxPermissionGroups
             // 
@@ -183,6 +224,17 @@ namespace json_editor_app
             this.textBoxAttachmentHiddenSelectionTextures.Size = new System.Drawing.Size(500, 60);
             this.textBoxAttachmentHiddenSelectionTextures.TabIndex = 9;
             // 
+            // loadAttachmentHiddenSelectionTexturesButton
+            // 
+            this.loadAttachmentHiddenSelectionTexturesButton = new System.Windows.Forms.Button();
+            this.loadAttachmentHiddenSelectionTexturesButton.Location = new System.Drawing.Point(875, 482); // Ajuste a posição conforme necessário
+            this.loadAttachmentHiddenSelectionTexturesButton.Name = "loadAttachmentHiddenSelectionTexturesButton";
+            this.loadAttachmentHiddenSelectionTexturesButton.Size = new System.Drawing.Size(50, 23);
+            this.loadAttachmentHiddenSelectionTexturesButton.TabIndex = 42;
+            this.loadAttachmentHiddenSelectionTexturesButton.Text = "Load";
+            this.loadAttachmentHiddenSelectionTexturesButton.UseVisualStyleBackColor = true;
+            this.loadAttachmentHiddenSelectionTexturesButton.Click += new System.EventHandler(this.LoadAttachmentHiddenSelectionTexturesButton_Click);
+            // 
             // textBoxAttachmentHiddenSelectionMaterials
             // 
             this.textBoxAttachmentHiddenSelectionMaterials.Location = new System.Drawing.Point(424, 586);
@@ -190,6 +242,28 @@ namespace json_editor_app
             this.textBoxAttachmentHiddenSelectionMaterials.Name = "textBoxAttachmentHiddenSelectionMaterials";
             this.textBoxAttachmentHiddenSelectionMaterials.Size = new System.Drawing.Size(500, 60);
             this.textBoxAttachmentHiddenSelectionMaterials.TabIndex = 10;
+            // 
+            // loadAttachmentHiddenSelectionMaterialsButton
+            // 
+            this.loadAttachmentHiddenSelectionMaterialsButton = new System.Windows.Forms.Button();
+            this.loadAttachmentHiddenSelectionMaterialsButton.Location = new System.Drawing.Point(875, 562); // Ajuste a posição conforme necessário
+            this.loadAttachmentHiddenSelectionMaterialsButton.Name = "loadAttachmentHiddenSelectionMaterialsButton";
+            this.loadAttachmentHiddenSelectionMaterialsButton.Size = new System.Drawing.Size(50, 23);
+            this.loadAttachmentHiddenSelectionMaterialsButton.TabIndex = 43;
+            this.loadAttachmentHiddenSelectionMaterialsButton.Text = "Load";
+            this.loadAttachmentHiddenSelectionMaterialsButton.UseVisualStyleBackColor = true;
+            this.loadAttachmentHiddenSelectionMaterialsButton.Click += new System.EventHandler(this.LoadAttachmentHiddenSelectionMaterialsButton_Click);
+            // 
+            // renameRepaintButton
+            //
+            this.renameRepaintButton = new System.Windows.Forms.Button();
+            this.renameRepaintButton.Location = new System.Drawing.Point(218, 630); // Ajuste a posição conforme necessário
+            this.renameRepaintButton.Name = "renameRepaintButton";
+            this.renameRepaintButton.Size = new System.Drawing.Size(100, 23);
+            this.renameRepaintButton.TabIndex = 10;
+            this.renameRepaintButton.Text = "Rename Skin";
+            this.renameRepaintButton.UseVisualStyleBackColor = true;
+            this.renameRepaintButton.Click += new System.EventHandler(this.RenameRepaintButton_Click);
             // 
             // loadButton
             // 
@@ -334,10 +408,51 @@ namespace json_editor_app
             this.copyItemButton.UseVisualStyleBackColor = true;
             this.copyItemButton.Click += new System.EventHandler(this.CopyItemButton_Click);
             // 
+            // moveItemUpButton
+            // 
+            this.moveItemUpButton.Location = new System.Drawing.Point(12, 630);
+            this.moveItemUpButton.Name = "moveItemUpButton";
+            this.moveItemUpButton.Size = new System.Drawing.Size(90, 23);
+            this.moveItemUpButton.TabIndex = 36;
+            this.moveItemUpButton.Text = "Mover Item ↑";
+            this.moveItemUpButton.UseVisualStyleBackColor = true;
+            this.moveItemUpButton.Click += new System.EventHandler(this.MoveItemUpButton_Click);
+            // 
+            // moveItemDownButton
+            // 
+            this.moveItemDownButton.Location = new System.Drawing.Point(120, 630);
+            this.moveItemDownButton.Name = "moveItemDownButton";
+            this.moveItemDownButton.Size = new System.Drawing.Size(90, 23);
+            this.moveItemDownButton.TabIndex = 37;
+            this.moveItemDownButton.Text = "Mover Item ↓";
+            this.moveItemDownButton.UseVisualStyleBackColor = true;
+            this.moveItemDownButton.Click += new System.EventHandler(this.MoveItemDownButton_Click);
+            // 
+            // moveRepaintUpButton
+            // 
+            this.moveRepaintUpButton.Location = new System.Drawing.Point(218, 600);
+            this.moveRepaintUpButton.Name = "moveRepaintUpButton";
+            this.moveRepaintUpButton.Size = new System.Drawing.Size(100, 23);
+            this.moveRepaintUpButton.TabIndex = 38;
+            this.moveRepaintUpButton.Text = "Mover Skin ↑";
+            this.moveRepaintUpButton.UseVisualStyleBackColor = true;
+            this.moveRepaintUpButton.Click += new System.EventHandler(this.MoveRepaintUpButton_Click);
+            // 
+            // moveRepaintDownButton
+            // 
+            this.moveRepaintDownButton.Location = new System.Drawing.Point(320, 600);
+            this.moveRepaintDownButton.Name = "moveRepaintDownButton";
+            this.moveRepaintDownButton.Size = new System.Drawing.Size(100, 23);
+            this.moveRepaintDownButton.TabIndex = 39;
+            this.moveRepaintDownButton.Text = "Mover Skin ↓";
+            this.moveRepaintDownButton.UseVisualStyleBackColor = true;
+            this.moveRepaintDownButton.Click += new System.EventHandler(this.MoveRepaintDownButton_Click);
+            // 
             // labelItemNames
             // 
             this.labelItemNames.AutoSize = true;
             this.labelItemNames.Location = new System.Drawing.Point(12, 34);
+            this.labelItemNames.Name = "labelItemNames";
             this.labelItemNames.Size = new System.Drawing.Size(64, 13);
             this.labelItemNames.TabIndex = 19;
             this.labelItemNames.Text = "Item Names";
@@ -437,6 +552,10 @@ namespace json_editor_app
             this.ClientSize = new System.Drawing.Size(950, 700);
             this.Controls.Add(this.moveItemButton); // Adicionado botão de mover item
             this.Controls.Add(this.copyItemButton); // Adicionado botão de copiar item
+            this.Controls.Add(this.moveItemUpButton); // Adicionado botão de mover item para cima
+            this.Controls.Add(this.moveItemDownButton); // Adicionado botão de mover item para baixo
+            this.Controls.Add(this.moveRepaintUpButton); // Adicionado botão de mover repaint para cima
+            this.Controls.Add(this.moveRepaintDownButton); // Adicionado botão de mover repaint para baixo
             this.Controls.Add(this.comboBoxItemNames); // Adicionado ComboBox
             this.Controls.Add(this.labelAttachmentHiddenSelectionMaterials);
             this.Controls.Add(this.labelAttachmentHiddenSelectionTextures);
@@ -458,6 +577,11 @@ namespace json_editor_app
             this.Controls.Add(this.saveAsButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.loadButton);
+            this.Controls.Add(this.loadHiddenSelectionTextButton);
+            this.Controls.Add(this.loadHiddenSelectionMaterialsButton); // Adicionado botão para textBoxHiddenSelectionMaterials
+            this.Controls.Add(this.loadAttachmentHiddenSelectionTexturesButton); // Adicionado botão para textBoxAttachmentHiddenSelectionTextures
+            this.Controls.Add(this.loadAttachmentHiddenSelectionMaterialsButton); // Adicionado botão para textBoxAttachmentHiddenSelectionMaterials
+            this.Controls.Add(this.renameRepaintButton);
             this.Controls.Add(this.moveRepaintButton); // Adicionado botão de mover
             this.Controls.Add(this.copyRepaintButton); // Adicionado botão de copiar
             this.Controls.Add(this.saveFinalVersionButton); // Adicionado botão de salvar versão final
@@ -474,7 +598,7 @@ namespace json_editor_app
             this.Controls.Add(this.listBoxItemNames);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Size = new System.Drawing.Size(950, 750);
+            this.Size = new System.Drawing.Size(1024, 750);
             this.Name = "Skin Editor";
             this.Text = "OrigemZ Skin Editor";
             this.BackColor = System.Drawing.Color.LightGray;
@@ -483,4 +607,3 @@ namespace json_editor_app
         }
     }
 }
-

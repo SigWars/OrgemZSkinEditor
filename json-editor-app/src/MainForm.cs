@@ -16,6 +16,7 @@ namespace json_editor_app
         private BindingSource bindingSourceRepaints = new BindingSource();
         private List<ItemName> itemNames;
         private string currentFilePath;
+        private string lastOpenedPath = "c:\\"; // Variável para armazenar o último caminho aberto
 
         public MainForm()
         {
@@ -30,7 +31,7 @@ namespace json_editor_app
             if (selectedIndices.Count > 0)
             {
                 var selectedItems = selectedIndices.Cast<int>().Select(index => listBoxItemNames.Items[index].ToString()).ToList();
-                var itemNamesList = itemNames.SelectMany(i => i.ItemNames).ToList();
+                var itemNamesList = itemNames.SelectMany(i => i.ItemNames).Where(name => name.StartsWith("--")).ToList(); // Filtrar nomes que começam com --
                 using (var dialog = new MoveCopyDialog(itemNamesList))
                 {
                     if (dialog.ShowDialog() == DialogResult.OK)
@@ -71,7 +72,7 @@ namespace json_editor_app
             if (selectedIndices.Count > 0)
             {
                 var selectedItems = selectedIndices.Cast<int>().Select(index => listBoxItemNames.Items[index].ToString()).ToList();
-                var itemNamesList = itemNames.SelectMany(i => i.ItemNames).ToList();
+                var itemNamesList = itemNames.SelectMany(i => i.ItemNames).Where(name => name.StartsWith("--")).ToList(); // Filtrar nomes que começam com --
                 using (var dialog = new MoveCopyDialog(itemNamesList))
                 {
                     if (dialog.ShowDialog() == DialogResult.OK)
@@ -115,7 +116,153 @@ namespace json_editor_app
             }
         }
 
-        // Código existente...
+        private void MoveRepaintButton_Click(object sender, EventArgs e)
+        {
+            var selectedItemIndex = listBoxItemNames.SelectedIndex;
+            var selectedRepaintIndices = listBoxRepaints.SelectedIndices;
+            if (selectedItemIndex >= 0 && selectedRepaintIndices.Count > 0)
+            {
+                var selectedItemName = listBoxItemNames.SelectedItem.ToString();
+                var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
+                if (selectedItem != null)
+                {
+                    var itemNamesList = itemNames.SelectMany(i => i.ItemNames).Where(name => name.StartsWith("--")).ToList(); // Filtrar nomes que começam com --
+                    using (var dialog = new MoveCopyDialog(itemNamesList))
+                    {
+                        if (dialog.ShowDialog() == DialogResult.OK)
+                        {
+                            var targetItemName = dialog.SelectedItemName;
+                            var targetItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(targetItemName));
+                            if (targetItem != null)
+                            {
+                                foreach (int index in selectedRepaintIndices)
+                                {
+                                    var repaint = selectedItem.Repaints[index];
+                                    targetItem.Repaints.Add(repaint);
+                                }
+
+                                foreach (int index in selectedRepaintIndices.Cast<int>().OrderByDescending(i => i))
+                                {
+                                    selectedItem.Repaints.RemoveAt(index);
+                                }
+
+                                bindingSourceRepaints.DataSource = selectedItem.Repaints;
+                                listBoxRepaints.DataSource = null;
+                                listBoxRepaints.DataSource = bindingSourceRepaints;
+                                listBoxRepaints.DisplayMember = "name";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CopyRepaintButton_Click(object sender, EventArgs e)
+{
+    var selectedItemIndex = listBoxItemNames.SelectedIndex;
+    var selectedRepaintIndices = listBoxRepaints.SelectedIndices;
+    if (selectedItemIndex >= 0 && selectedRepaintIndices.Count > 0)
+    {
+        var selectedItemName = listBoxItemNames.SelectedItem.ToString();
+        var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
+        if (selectedItem != null)
+        {
+            var itemNamesList = itemNames.SelectMany(i => i.ItemNames).Where(name => name.StartsWith("--")).ToList(); // Filtrar nomes que começam com --
+            using (var dialog = new MoveCopyDialog(itemNamesList))
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    var targetItemName = dialog.SelectedItemName;
+                    var targetItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(targetItemName));
+                    if (targetItem != null)
+                    {
+                        foreach (int index in selectedRepaintIndices)
+                        {
+                            var repaint = selectedItem.Repaints[index];
+                            var newRepaint = new Repaint
+                            {
+                                Name = repaint.Name,
+                                OverwrittenDisplayName = repaint.OverwrittenDisplayName,
+                                ExcludedItems = new List<string>(repaint.ExcludedItems),
+                                HiddenSelectionTextures = new List<string>(repaint.HiddenSelectionTextures),
+                                HiddenSelectionMaterials = new List<string>(repaint.HiddenSelectionMaterials),
+                                PermissionGroups = new List<string>(repaint.PermissionGroups),
+                                Attachments = repaint.Attachments.Select(a => new Attachment
+                                {
+                                    ItemNames = new List<string>(a.ItemNames),
+                                    HiddenSelectionTextures = new List<string>(a.HiddenSelectionTextures),
+                                    HiddenSelectionMaterials = new List<string>(a.HiddenSelectionMaterials)
+                                }).ToList()
+                            };
+                            targetItem.Repaints.Add(newRepaint);
+                        }
+
+                        bindingSourceRepaints.DataSource = selectedItem.Repaints;
+                        listBoxRepaints.DataSource = null;
+                        listBoxRepaints.DataSource = bindingSourceRepaints;
+                        listBoxRepaints.DisplayMember = "name";
+                    }
+                }
+            }
+        }
+    }
+}
+
+        private void MoveItemUpButton_Click(object sender, EventArgs e)
+        {
+            var selectedIndex = listBoxItemNames.SelectedIndex;
+            if (selectedIndex > 0)
+            {
+                var itemNamesList = bindingSourceItemNames.List.Cast<string>().ToList();
+                var itemName = itemNamesList[selectedIndex];
+                itemNamesList.RemoveAt(selectedIndex);
+                itemNamesList.Insert(selectedIndex - 1, itemName);
+                bindingSourceItemNames.DataSource = itemNamesList;
+                listBoxItemNames.SelectedIndex = selectedIndex - 1;
+            }
+        }
+
+        private void MoveItemDownButton_Click(object sender, EventArgs e)
+        {
+            var selectedIndex = listBoxItemNames.SelectedIndex;
+            if (selectedIndex < listBoxItemNames.Items.Count - 1)
+            {
+                var itemNamesList = bindingSourceItemNames.List.Cast<string>().ToList();
+                var itemName = itemNamesList[selectedIndex];
+                itemNamesList.RemoveAt(selectedIndex);
+                itemNamesList.Insert(selectedIndex + 1, itemName);
+                bindingSourceItemNames.DataSource = itemNamesList;
+                listBoxItemNames.SelectedIndex = selectedIndex + 1;
+            }
+        }
+
+        private void MoveRepaintUpButton_Click(object sender, EventArgs e)
+        {
+            var selectedIndex = listBoxRepaints.SelectedIndex;
+            if (selectedIndex > 0)
+            {
+                var repaintsList = bindingSourceRepaints.List.Cast<Repaint>().ToList();
+                var repaint = repaintsList[selectedIndex];
+                repaintsList.RemoveAt(selectedIndex);
+                repaintsList.Insert(selectedIndex - 1, repaint);
+                bindingSourceRepaints.DataSource = repaintsList;
+                listBoxRepaints.SelectedIndex = selectedIndex - 1;
+            }
+        }
+
+        private void MoveRepaintDownButton_Click(object sender, EventArgs e)
+        {
+            var selectedIndex = listBoxRepaints.SelectedIndex;
+            if (selectedIndex < listBoxRepaints.Items.Count - 1)
+            {
+                var repaintsList = bindingSourceRepaints.List.Cast<Repaint>().ToList();
+                var repaint = repaintsList[selectedIndex];
+                repaintsList.RemoveAt(selectedIndex);
+                repaintsList.Insert(selectedIndex + 1, repaint);
+                bindingSourceRepaints.DataSource = repaintsList;
+                listBoxRepaints.SelectedIndex = selectedIndex + 1;
+            }
+        }
 
         private void LoadButton_Click(object sender, EventArgs e)
         {
@@ -247,6 +394,17 @@ namespace json_editor_app
                             repaint.Attachments.Add(newAttachment);
                         }
                     }
+                }
+
+                // Atualizar a ordem dos itens na lista itemNames com base na ordem da listBoxItemNames
+                var orderedItemNames = listBoxItemNames.Items.Cast<string>().ToList();
+                itemNames = itemNames.OrderBy(i => orderedItemNames.IndexOf(i.ItemNames.FirstOrDefault())).ToList();
+
+                // Atualizar a ordem dos repaints na lista itemNames com base na ordem da listBoxRepaints
+                foreach (var item in itemNames)
+                {
+                    var orderedRepaints = listBoxRepaints.Items.Cast<Repaint>().ToList();
+                    item.Repaints = item.Repaints.OrderBy(r => orderedRepaints.IndexOf(r)).ToList();
                 }
 
                 // Serializar o JSON com as chaves preservando o caso sensível
@@ -414,14 +572,17 @@ namespace json_editor_app
         private void RemoveRepaintButton_Click(object sender, EventArgs e)
         {
             var selectedItemIndex = listBoxItemNames.SelectedIndex;
-            var selectedRepaintIndex = listBoxRepaints.SelectedIndex;
-            if (selectedItemIndex >= 0 && selectedRepaintIndex >= 0)
+            var selectedRepaintIndices = listBoxRepaints.SelectedIndices;
+            if (selectedItemIndex >= 0 && selectedRepaintIndices.Count > 0)
             {
                 var selectedItemName = listBoxItemNames.SelectedItem.ToString();
                 var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
-                if (selectedItem != null && selectedRepaintIndex < selectedItem.Repaints.Count)
+                if (selectedItem != null)
                 {
-                    selectedItem.Repaints.RemoveAt(selectedRepaintIndex);
+                    foreach (int index in selectedRepaintIndices.Cast<int>().OrderByDescending(i => i))
+                    {
+                        selectedItem.Repaints.RemoveAt(index);
+                    }
                     bindingSourceRepaints.DataSource = selectedItem.Repaints;
                     listBoxRepaints.DataSource = null;
                     listBoxRepaints.DataSource = bindingSourceRepaints;
@@ -445,86 +606,6 @@ namespace json_editor_app
                         selectedItem.ItemNames.Add(newItemName);
                         bindingSourceItemNames.DataSource = itemNames.SelectMany(i => i.ItemNames).ToList();
                         LoadItemNamesToComboBox(); // Atualizar ComboBox após adicionar novo nome de item
-                    }
-                }
-            }
-        }
-
-        private void MoveRepaintButton_Click(object sender, EventArgs e)
-        {
-            var selectedItemIndex = listBoxItemNames.SelectedIndex;
-            var selectedRepaintIndex = listBoxRepaints.SelectedIndex;
-            if (selectedItemIndex >= 0 && selectedRepaintIndex >= 0)
-            {
-                var selectedItemName = listBoxItemNames.SelectedItem.ToString();
-                var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
-                if (selectedItem != null && selectedRepaintIndex < selectedItem.Repaints.Count)
-                {
-                    var repaint = selectedItem.Repaints[selectedRepaintIndex];
-                    var itemNamesList = itemNames.SelectMany(i => i.ItemNames).ToList();
-                    using (var dialog = new MoveCopyDialog(itemNamesList))
-                    {
-                        if (dialog.ShowDialog() == DialogResult.OK)
-                        {
-                            var targetItemName = dialog.SelectedItemName;
-                            var targetItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(targetItemName));
-                            if (targetItem != null)
-                            {
-                                targetItem.Repaints.Add(repaint);
-                                selectedItem.Repaints.RemoveAt(selectedRepaintIndex);
-                                bindingSourceRepaints.DataSource = selectedItem.Repaints;
-                                listBoxRepaints.DataSource = null;
-                                listBoxRepaints.DataSource = bindingSourceRepaints;
-                                listBoxRepaints.DisplayMember = "name";
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        private void CopyRepaintButton_Click(object sender, EventArgs e)
-        {
-            var selectedItemIndex = listBoxItemNames.SelectedIndex;
-            var selectedRepaintIndex = listBoxRepaints.SelectedIndex;
-            if (selectedItemIndex >= 0 && selectedRepaintIndex >= 0)
-            {
-                var selectedItemName = listBoxItemNames.SelectedItem.ToString();
-                var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
-                if (selectedItem != null && selectedRepaintIndex < selectedItem.Repaints.Count)
-                {
-                    var repaint = selectedItem.Repaints[selectedRepaintIndex];
-                    var itemNamesList = itemNames.SelectMany(i => i.ItemNames).ToList();
-                    using (var dialog = new MoveCopyDialog(itemNamesList))
-                    {
-                        if (dialog.ShowDialog() == DialogResult.OK)
-                        {
-                            var targetItemName = dialog.SelectedItemName;
-                            var targetItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(targetItemName));
-                            if (targetItem != null)
-                            {
-                                var newRepaint = new Repaint
-                                {
-                                    Name = repaint.Name,
-                                    OverwrittenDisplayName = repaint.OverwrittenDisplayName,
-                                    ExcludedItems = new List<string>(repaint.ExcludedItems),
-                                    HiddenSelectionTextures = new List<string>(repaint.HiddenSelectionTextures),
-                                    HiddenSelectionMaterials = new List<string>(repaint.HiddenSelectionMaterials),
-                                    PermissionGroups = new List<string>(repaint.PermissionGroups),
-                                    Attachments = repaint.Attachments.Select(a => new Attachment
-                                    {
-                                        ItemNames = new List<string>(a.ItemNames),
-                                        HiddenSelectionTextures = new List<string>(a.HiddenSelectionTextures),
-                                        HiddenSelectionMaterials = new List<string>(a.HiddenSelectionMaterials)
-                                    }).ToList()
-                                };
-                                targetItem.Repaints.Add(newRepaint);
-                                bindingSourceRepaints.DataSource = selectedItem.Repaints;
-                                listBoxRepaints.DataSource = null;
-                                listBoxRepaints.DataSource = bindingSourceRepaints;
-                                listBoxRepaints.DisplayMember = "name";
-                            }
-                        }
                     }
                 }
             }
@@ -555,14 +636,23 @@ namespace json_editor_app
         {
             // Lógica para manipular a seleção do ComboBox
             string selectedItem = comboBoxItemNames.SelectedItem.ToString();
-            // Atualize a interface do usuário com base no item selecionado
-            var selectedItemName = selectedItem;
-            var selectedItemObj = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
-            if (selectedItemObj != null)
+            if (selectedItem == "Mostrar Todos")
             {
-                var filteredItemNames = selectedItemObj.ItemNames.Where(name => !name.StartsWith("--")).ToList();
-                bindingSourceItemNames.DataSource = filteredItemNames;
+                // Exibir todos os itens
+                bindingSourceItemNames.DataSource = itemNames.SelectMany(i => i.ItemNames).ToList();
                 listBoxItemNames.DataSource = bindingSourceItemNames;
+            }
+            else
+            {
+                // Atualize a interface do usuário com base no item selecionado
+                var selectedItemName = selectedItem;
+                var selectedItemObj = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
+                if (selectedItemObj != null)
+                {
+                    var filteredItemNames = selectedItemObj.ItemNames.Where(name => !name.StartsWith("--")).ToList();
+                    bindingSourceItemNames.DataSource = filteredItemNames;
+                    listBoxItemNames.DataSource = bindingSourceItemNames;
+                }
             }
         }
 
@@ -574,6 +664,7 @@ namespace json_editor_app
                                              .Where(name => name.StartsWith("--"))
                                              .ToList();
                 comboBoxItemNames.Items.Clear();
+                comboBoxItemNames.Items.Add("Mostrar Todos"); // Adicionar opção para mostrar todos os itens
                 comboBoxItemNames.Items.AddRange(itemNamesList.ToArray());
             }
         }
@@ -601,7 +692,118 @@ namespace json_editor_app
                 }
             }
         }
+
+        private void RenameRepaintButton_Click(object sender, EventArgs e)
+        {
+            var selectedItemIndex = listBoxItemNames.SelectedIndex;
+            var selectedRepaintIndex = listBoxRepaints.SelectedIndex;
+            if (selectedItemIndex >= 0 && selectedRepaintIndex >= 0)
+            {
+                var selectedItemName = listBoxItemNames.SelectedItem.ToString();
+                var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
+                if (selectedItem != null)
+                {
+                    var selectedRepaint = selectedItem.Repaints[selectedRepaintIndex];
+                    var newRepaintName = Prompt.ShowDialog("Enter new repaint name:", "Rename Repaint", selectedRepaint.Name);
+                    if (!string.IsNullOrWhiteSpace(newRepaintName))
+                    {
+                        selectedRepaint.Name = newRepaintName;
+                        bindingSourceRepaints.ResetBindings(false);
+                    }
+                }
+            }
+        }
+        private void LoadHiddenSelectionTextButton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = lastOpenedPath;
+                openFileDialog.Filter = "All files (*.paa)|*.paa";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    // Atualizar o último caminho aberto
+                    lastOpenedPath = Path.GetDirectoryName(filePath);
+                    // Remover as três primeiras letras e inverter as barras
+                    string modifiedPath = filePath.Substring(3).Replace("\\", "/");
+                    // Repetir o caminho três vezes, uma vez por linha
+                    string repeatedPath = string.Join(Environment.NewLine, Enumerable.Repeat(modifiedPath, 3));
+                    this.textBoxHiddenSelectionTextures.Text = repeatedPath;
+                }
+            }
+        }
+
+        private void LoadHiddenSelectionMaterialsButton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = lastOpenedPath;
+                openFileDialog.Filter = "All files (*.paa)|*.paa";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    // Atualizar o último caminho aberto
+                    lastOpenedPath = Path.GetDirectoryName(filePath);
+                    // Remover as três primeiras letras e inverter as barras
+                    string modifiedPath = filePath.Substring(3).Replace("\\", "/");
+                    // Repetir o caminho três vezes, uma vez por linha
+                    string repeatedPath = string.Join(Environment.NewLine, Enumerable.Repeat(modifiedPath, 3));
+                    this.textBoxHiddenSelectionMaterials.Text = repeatedPath;
+                }
+            }
+        }
+
+        private void LoadAttachmentHiddenSelectionTexturesButton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = lastOpenedPath;
+                openFileDialog.Filter = "All files (*.paa)|*.paa";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    // Atualizar o último caminho aberto
+                    lastOpenedPath = Path.GetDirectoryName(filePath);
+                    // Remover as três primeiras letras e inverter as barras
+                    string modifiedPath = filePath.Substring(3).Replace("\\", "/");
+                    // Repetir o caminho três vezes, uma vez por linha
+                    string repeatedPath = string.Join(Environment.NewLine, Enumerable.Repeat(modifiedPath, 3));
+                    this.textBoxAttachmentHiddenSelectionTextures.Text = repeatedPath;
+                }
+            }
+        }
+
+        private void LoadAttachmentHiddenSelectionMaterialsButton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = lastOpenedPath;
+                openFileDialog.Filter = "All files (*.paa)|*.paa";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    // Atualizar o último caminho aberto
+                    lastOpenedPath = Path.GetDirectoryName(filePath);
+                    // Remover as três primeiras letras e inverter as barras
+                    string modifiedPath = filePath.Substring(3).Replace("\\", "/");
+                    // Repetir o caminho três vezes, uma vez por linha
+                    string repeatedPath = string.Join(Environment.NewLine, Enumerable.Repeat(modifiedPath, 3));
+                    this.textBoxAttachmentHiddenSelectionMaterials.Text = repeatedPath;
+                }
+            }
+        }
     }
 }
-
 
