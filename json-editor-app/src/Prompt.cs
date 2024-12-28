@@ -5,7 +5,7 @@ namespace json_editor_app
 {
     public static class Prompt
     {
-        public static string ShowDialog(string text, string caption)
+        public static string ShowDialog(string text, string caption, string defaultValue = "")
         {
             Form prompt = new Form()
             {
@@ -16,7 +16,7 @@ namespace json_editor_app
                 StartPosition = FormStartPosition.CenterScreen
             };
             Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
-            TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
+            TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400, Text = defaultValue };
             Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
             confirmation.Click += (sender, e) => { prompt.Close(); };
             prompt.Controls.Add(textBox);
@@ -26,5 +26,7 @@ namespace json_editor_app
 
             return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
         }
+
+
     }
 }

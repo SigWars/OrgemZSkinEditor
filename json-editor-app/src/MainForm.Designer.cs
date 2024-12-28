@@ -9,6 +9,7 @@ namespace json_editor_app
         private System.Windows.Forms.ListBox listBoxRepaints;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxOverwrittenDisplayName;
+        private System.Windows.Forms.TextBox textBoxExcludedItems; // Adicionado campo textBoxExcludedItems
         private System.Windows.Forms.TextBox textBoxHiddenSelectionTextures;
         private System.Windows.Forms.TextBox textBoxHiddenSelectionMaterials;
         private System.Windows.Forms.TextBox textBoxPermissionGroups;
@@ -23,6 +24,7 @@ namespace json_editor_app
         private System.Windows.Forms.Button addRepaintButton;
         private System.Windows.Forms.Button removeRepaintButton;
         private System.Windows.Forms.Button addStringToItemNameButton;
+        private System.Windows.Forms.Button renameItemNameButton; // Adicionado botão de renomear
         private System.Windows.Forms.Button moveRepaintButton; // Adicionado botão de mover
         private System.Windows.Forms.Button copyRepaintButton; // Adicionado botão de copiar
         private System.Windows.Forms.Button saveFinalVersionButton; // Adicionado botão de salvar versão final
@@ -30,6 +32,7 @@ namespace json_editor_app
         private System.Windows.Forms.Label labelRepaints;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelOverwrittenDisplayName;
+        private System.Windows.Forms.Label labelExcludedItems; // Adicionado label para textBoxExcludedItems
         private System.Windows.Forms.Label labelHiddenSelectionTextures;
         private System.Windows.Forms.Label labelHiddenSelectionMaterials;
         private System.Windows.Forms.Label labelPermissionGroups;
@@ -53,6 +56,7 @@ namespace json_editor_app
             this.listBoxRepaints = new System.Windows.Forms.ListBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxOverwrittenDisplayName = new System.Windows.Forms.TextBox();
+            this.textBoxExcludedItems = new System.Windows.Forms.TextBox(); // Adicionado campo textBoxExcludedItems
             this.textBoxHiddenSelectionTextures = new System.Windows.Forms.TextBox();
             this.textBoxHiddenSelectionMaterials = new System.Windows.Forms.TextBox();
             this.textBoxPermissionGroups = new System.Windows.Forms.TextBox();
@@ -67,6 +71,7 @@ namespace json_editor_app
             this.addRepaintButton = new System.Windows.Forms.Button();
             this.removeRepaintButton = new System.Windows.Forms.Button();
             this.addStringToItemNameButton = new System.Windows.Forms.Button();
+            this.renameItemNameButton = new System.Windows.Forms.Button(); // Adicionado botão de renomear
             this.moveRepaintButton = new System.Windows.Forms.Button(); // Adicionado botão de mover
             this.copyRepaintButton = new System.Windows.Forms.Button(); // Adicionado botão de copiar
             this.saveFinalVersionButton = new System.Windows.Forms.Button(); // Adicionado botão de salvar versão final
@@ -74,6 +79,7 @@ namespace json_editor_app
             this.labelRepaints = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.labelOverwrittenDisplayName = new System.Windows.Forms.Label();
+            this.labelExcludedItems = new System.Windows.Forms.Label(); // Adicionado label para textBoxExcludedItems
             this.labelHiddenSelectionTextures = new System.Windows.Forms.Label();
             this.labelHiddenSelectionMaterials = new System.Windows.Forms.Label();
             this.labelPermissionGroups = new System.Windows.Forms.Label();
@@ -124,33 +130,41 @@ namespace json_editor_app
             this.textBoxOverwrittenDisplayName.Size = new System.Drawing.Size(364, 20);
             this.textBoxOverwrittenDisplayName.TabIndex = 3;
             // 
+            // textBoxExcludedItems
+            // 
+            this.textBoxExcludedItems.Location = new System.Drawing.Point(424, 106);
+            this.textBoxExcludedItems.Multiline = true;
+            this.textBoxExcludedItems.Name = "textBoxExcludedItems";
+            this.textBoxExcludedItems.Size = new System.Drawing.Size(364, 60);
+            this.textBoxExcludedItems.TabIndex = 4;
+            // 
             // textBoxHiddenSelectionTextures
             // 
-            this.textBoxHiddenSelectionTextures.Location = new System.Drawing.Point(424, 106);
+            this.textBoxHiddenSelectionTextures.Location = new System.Drawing.Point(424, 186);
             this.textBoxHiddenSelectionTextures.Multiline = true;
             this.textBoxHiddenSelectionTextures.Name = "textBoxHiddenSelectionTextures";
             this.textBoxHiddenSelectionTextures.Size = new System.Drawing.Size(500, 60);
-            this.textBoxHiddenSelectionTextures.TabIndex = 4;
+            this.textBoxHiddenSelectionTextures.TabIndex = 5;
             // 
             // textBoxHiddenSelectionMaterials
             // 
-            this.textBoxHiddenSelectionMaterials.Location = new System.Drawing.Point(424, 186);
+            this.textBoxHiddenSelectionMaterials.Location = new System.Drawing.Point(424, 266);
             this.textBoxHiddenSelectionMaterials.Multiline = true;
             this.textBoxHiddenSelectionMaterials.Name = "textBoxHiddenSelectionMaterials";
             this.textBoxHiddenSelectionMaterials.Size = new System.Drawing.Size(500, 60);
-            this.textBoxHiddenSelectionMaterials.TabIndex = 5;
+            this.textBoxHiddenSelectionMaterials.TabIndex = 6;
             // 
             // textBoxPermissionGroups
             // 
-            this.textBoxPermissionGroups.Location = new System.Drawing.Point(424, 266);
+            this.textBoxPermissionGroups.Location = new System.Drawing.Point(424, 346);
             this.textBoxPermissionGroups.Multiline = true;
             this.textBoxPermissionGroups.Name = "textBoxPermissionGroups";
             this.textBoxPermissionGroups.Size = new System.Drawing.Size(364, 60);
-            this.textBoxPermissionGroups.TabIndex = 6;
+            this.textBoxPermissionGroups.TabIndex = 7;
             // 
             // textBoxAttachmentItemNames
             // 
-            this.textBoxAttachmentItemNames.Location = new System.Drawing.Point(424, 346);
+            this.textBoxAttachmentItemNames.Location = new System.Drawing.Point(424, 426);
             this.textBoxAttachmentItemNames.Multiline = true;
             this.textBoxAttachmentItemNames.Name = "textBoxAttachmentItemNames";
             this.textBoxAttachmentItemNames.Size = new System.Drawing.Size(364, 60);
@@ -158,7 +172,7 @@ namespace json_editor_app
             // 
             // textBoxAttachmentHiddenSelectionTextures
             // 
-            this.textBoxAttachmentHiddenSelectionTextures.Location = new System.Drawing.Point(424, 426);
+            this.textBoxAttachmentHiddenSelectionTextures.Location = new System.Drawing.Point(424, 506);
             this.textBoxAttachmentHiddenSelectionTextures.Multiline = true;
             this.textBoxAttachmentHiddenSelectionTextures.Name = "textBoxAttachmentHiddenSelectionTextures";
             this.textBoxAttachmentHiddenSelectionTextures.Size = new System.Drawing.Size(500, 60);
@@ -166,12 +180,15 @@ namespace json_editor_app
             // 
             // textBoxAttachmentHiddenSelectionMaterials
             // 
-            this.textBoxAttachmentHiddenSelectionMaterials.Location = new System.Drawing.Point(424, 506);
+            this.textBoxAttachmentHiddenSelectionMaterials.Location = new System.Drawing.Point(424, 586);
             this.textBoxAttachmentHiddenSelectionMaterials.Multiline = true;
             this.textBoxAttachmentHiddenSelectionMaterials.Name = "textBoxAttachmentHiddenSelectionMaterials";
             this.textBoxAttachmentHiddenSelectionMaterials.Size = new System.Drawing.Size(500, 60);
+            this.textBoxAttachmentHiddenSelectionMaterials.TabIndex = 10;
+            // 
             // loadButton
-            this.loadButton.Location = new System.Drawing.Point(650, 570);
+            // 
+            this.loadButton.Location = new System.Drawing.Point(650, 660);
             this.loadButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             this.loadButton.Name = "loadButton";
             this.loadButton.Size = new System.Drawing.Size(75, 23);
@@ -179,9 +196,10 @@ namespace json_editor_app
             this.loadButton.Text = "Load";
             this.loadButton.UseVisualStyleBackColor = true;
             this.loadButton.Click += new System.EventHandler(this.LoadButton_Click);
-
+            // 
             // saveButton
-            this.saveButton.Location = new System.Drawing.Point(730, 570);
+            // 
+            this.saveButton.Location = new System.Drawing.Point(730, 660);
             this.saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
@@ -189,9 +207,10 @@ namespace json_editor_app
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);
-
+            // 
             // saveAsButton
-            this.saveAsButton.Location = new System.Drawing.Point(810, 570);
+            // 
+            this.saveAsButton.Location = new System.Drawing.Point(810, 660);
             this.saveAsButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             this.saveAsButton.Name = "saveAsButton";
             this.saveAsButton.Size = new System.Drawing.Size(75, 23);
@@ -224,11 +243,21 @@ namespace json_editor_app
             // 
             this.addItemNameButton.Location = new System.Drawing.Point(12, 570);
             this.addItemNameButton.Name = "addItemNameButton";
-            this.addItemNameButton.Size = new System.Drawing.Size(75, 23);
+            this.addItemNameButton.Size = new System.Drawing.Size(90, 23);
             this.addItemNameButton.TabIndex = 14;
             this.addItemNameButton.Text = "Add Group";
             this.addItemNameButton.UseVisualStyleBackColor = true;
             this.addItemNameButton.Click += new System.EventHandler(this.AddItemNameButton_Click);
+            // 
+            // renameItemNameButton
+            // 
+            this.renameItemNameButton.Location = new System.Drawing.Point(120, 570);
+            this.renameItemNameButton.Name = "renameItemNameButton";
+            this.renameItemNameButton.Size = new System.Drawing.Size(90, 23);
+            this.renameItemNameButton.TabIndex = 33;
+            this.renameItemNameButton.Text = "Rename Item";
+            this.renameItemNameButton.UseVisualStyleBackColor = true;
+            this.renameItemNameButton.Click += new System.EventHandler(this.RenameItemNameButton_Click);
             // 
             // addRepaintButton
             // 
@@ -272,7 +301,7 @@ namespace json_editor_app
             // 
             // saveFinalVersionButton
             // 
-            this.saveFinalVersionButton.Location = new System.Drawing.Point(430, 570);
+            this.saveFinalVersionButton.Location = new System.Drawing.Point(430, 660);
             this.saveFinalVersionButton.Name = "saveFinalVersionButton";
             this.saveFinalVersionButton.Size = new System.Drawing.Size(100, 23);
             this.saveFinalVersionButton.TabIndex = 32;
@@ -316,63 +345,72 @@ namespace json_editor_app
             this.labelOverwrittenDisplayName.TabIndex = 22;
             this.labelOverwrittenDisplayName.Text = "Overwritten Display Name";
             // 
+            // labelExcludedItems
+            // 
+            this.labelExcludedItems.AutoSize = true;
+            this.labelExcludedItems.Location = new System.Drawing.Point(421, 90);
+            this.labelExcludedItems.Name = "labelExcludedItems";
+            this.labelExcludedItems.Size = new System.Drawing.Size(80, 13);
+            this.labelExcludedItems.TabIndex = 23;
+            this.labelExcludedItems.Text = "Excluded Items";
+            // 
             // labelHiddenSelectionTextures
             // 
             this.labelHiddenSelectionTextures.AutoSize = true;
-            this.labelHiddenSelectionTextures.Location = new System.Drawing.Point(421, 90);
+            this.labelHiddenSelectionTextures.Location = new System.Drawing.Point(421, 170);
             this.labelHiddenSelectionTextures.Name = "labelHiddenSelectionTextures";
             this.labelHiddenSelectionTextures.Size = new System.Drawing.Size(128, 13);
-            this.labelHiddenSelectionTextures.TabIndex = 23;
+            this.labelHiddenSelectionTextures.TabIndex = 24;
             this.labelHiddenSelectionTextures.Text = "Hidden Selection Textures";
             // 
             // labelHiddenSelectionMaterials
             // 
             this.labelHiddenSelectionMaterials.AutoSize = true;
-            this.labelHiddenSelectionMaterials.Location = new System.Drawing.Point(421, 170);
+            this.labelHiddenSelectionMaterials.Location = new System.Drawing.Point(421, 250);
             this.labelHiddenSelectionMaterials.Name = "labelHiddenSelectionMaterials";
             this.labelHiddenSelectionMaterials.Size = new System.Drawing.Size(133, 13);
-            this.labelHiddenSelectionMaterials.TabIndex = 24;
+            this.labelHiddenSelectionMaterials.TabIndex = 25;
             this.labelHiddenSelectionMaterials.Text = "Hidden Selection Materials";
             // 
             // labelPermissionGroups
             // 
             this.labelPermissionGroups.AutoSize = true;
-            this.labelPermissionGroups.Location = new System.Drawing.Point(421, 250);
+            this.labelPermissionGroups.Location = new System.Drawing.Point(421, 330);
             this.labelPermissionGroups.Name = "labelPermissionGroups";
             this.labelPermissionGroups.Size = new System.Drawing.Size(95, 13);
-            this.labelPermissionGroups.TabIndex = 25;
+            this.labelPermissionGroups.TabIndex = 26;
             this.labelPermissionGroups.Text = "Permission Groups";
             // 
             // labelAttachmentItemNames
             // 
             this.labelAttachmentItemNames.AutoSize = true;
-            this.labelAttachmentItemNames.Location = new System.Drawing.Point(421, 330);
+            this.labelAttachmentItemNames.Location = new System.Drawing.Point(421, 410);
             this.labelAttachmentItemNames.Name = "labelAttachmentItemNames";
             this.labelAttachmentItemNames.Size = new System.Drawing.Size(128, 13);
-            this.labelAttachmentItemNames.TabIndex = 26;
+            this.labelAttachmentItemNames.TabIndex = 27;
             this.labelAttachmentItemNames.Text = "Attachment Item Names";
             // 
             // labelAttachmentHiddenSelectionTextures
             // 
             this.labelAttachmentHiddenSelectionTextures.AutoSize = true;
-            this.labelAttachmentHiddenSelectionTextures.Location = new System.Drawing.Point(421, 410);
+            this.labelAttachmentHiddenSelectionTextures.Location = new System.Drawing.Point(421, 490);
             this.labelAttachmentHiddenSelectionTextures.Name = "labelAttachmentHiddenSelectionTextures";
             this.labelAttachmentHiddenSelectionTextures.Size = new System.Drawing.Size(167, 13);
-            this.labelAttachmentHiddenSelectionTextures.TabIndex = 27;
+            this.labelAttachmentHiddenSelectionTextures.TabIndex = 28;
             this.labelAttachmentHiddenSelectionTextures.Text = "Attachment Hidden Selection Textures";
             // 
             // labelAttachmentHiddenSelectionMaterials
             // 
             this.labelAttachmentHiddenSelectionMaterials.AutoSize = true;
-            this.labelAttachmentHiddenSelectionMaterials.Location = new System.Drawing.Point(421, 490);
+            this.labelAttachmentHiddenSelectionMaterials.Location = new System.Drawing.Point(421, 570);
             this.labelAttachmentHiddenSelectionMaterials.Name = "labelAttachmentHiddenSelectionMaterials";
             this.labelAttachmentHiddenSelectionMaterials.Size = new System.Drawing.Size(172, 13);
-            this.labelAttachmentHiddenSelectionMaterials.TabIndex = 28;
+            this.labelAttachmentHiddenSelectionMaterials.TabIndex = 29;
             this.labelAttachmentHiddenSelectionMaterials.Text = "Attachment Hidden Selection Materials";
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(950, 600);
+            this.ClientSize = new System.Drawing.Size(950, 700);
             this.Controls.Add(this.comboBoxItemNames); // Adicionado ComboBox
             this.Controls.Add(this.labelAttachmentHiddenSelectionMaterials);
             this.Controls.Add(this.labelAttachmentHiddenSelectionTextures);
@@ -380,6 +418,7 @@ namespace json_editor_app
             this.Controls.Add(this.labelPermissionGroups);
             this.Controls.Add(this.labelHiddenSelectionMaterials);
             this.Controls.Add(this.labelHiddenSelectionTextures);
+            this.Controls.Add(this.labelExcludedItems); // Adicionado label para textBoxExcludedItems
             this.Controls.Add(this.labelOverwrittenDisplayName);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.labelRepaints);
@@ -389,6 +428,7 @@ namespace json_editor_app
             this.Controls.Add(this.addRepaintButton);
             this.Controls.Add(this.removeItemNameButton);
             this.Controls.Add(this.addItemNameButton);
+            this.Controls.Add(this.renameItemNameButton); // Adicionado botão de renomear
             this.Controls.Add(this.saveAsButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.loadButton);
@@ -401,13 +441,14 @@ namespace json_editor_app
             this.Controls.Add(this.textBoxPermissionGroups);
             this.Controls.Add(this.textBoxHiddenSelectionMaterials);
             this.Controls.Add(this.textBoxHiddenSelectionTextures);
+            this.Controls.Add(this.textBoxExcludedItems); // Adicionado campo textBoxExcludedItems
             this.Controls.Add(this.textBoxOverwrittenDisplayName);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.listBoxRepaints);
             this.Controls.Add(this.listBoxItemNames);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Size = new System.Drawing.Size(950, 650);
+            this.Size = new System.Drawing.Size(950, 750);
             this.Name = "Skin Editor";
             this.Text = "OrigemZ Skin Editor";
             this.BackColor = System.Drawing.Color.LightGray;

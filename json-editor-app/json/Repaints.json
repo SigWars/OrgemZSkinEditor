@@ -2,9 +2,225 @@
   {
     "ItemNames": [
       "RGD5Grenade",
+      "M67Grenade",
+      "IMP_Grip_BCM",
+      "IMP_Grip_Egg",
+      "IMP_Grip_FortisShift",
+      "IMP_VerticalGrip_Black",
+      "IMP_Grip_KAC",
+      "IMP_Grip_MagpulAFG_Black",
+      "IMP_Grip_MagpulAFG_Green",
+      "IMP_Grip_MagpulAFG_Tan",
+      "IMP_Grip_Pillau",
+      "IMP_Grip_StrikeIndustriesCT",
+      "IMP_Grip_TacticalDynamicsSkel",
+      "IMP_Grip_TangoDown_Black",
+      "IMP_Grip_TangoDown_Blue",
+      "IMP_Grip_TangoDown_Tan",
+      "IMP_Grip_VtacUVG",
+      "IMP_Grip_ZenitB25u",
+      "IMP_Grip_ZenitRK0",
+      "IMP_Grip_ZenitRK1",
+      "IMP_Grip_ZenitRK2",
+      "IMP_Grip_ZenitRK4",
+      "IMP_Grip_ZenitRK5",
+      "IMP_Grip_ZenitRK6",
+      "IMP_PistolGrip_AK_AK12Izhmash",
+      "IMP_PistolGrip_AK_AK74Plastic",
+      "IMP_PistolGrip_AK_CustomArms",
+      "IMP_PistolGrip_AK_FabDefence",
+      "IMP_PistolGrip_AK_Kgb_red",
+      "IMP_PistolGrip_AK_Kgb_gold",
+      "IMP_PistolGrip_AK_Aeroknox",
+      "IMP_PistolGrip_AK_Magpul",
+      "IMP_PistolGrip_AK_Bakelit",
+      "IMP_PistolGrip_AK_MolotBakelit",
+      "IMP_PistolGrip_AK_AKM_Wood",
+      "IMP_PistolGrip_AK_StrikeIndustries_Tan",
+      "IMP_PistolGrip_AK_StrikeIndustries_Black",
+      "IMP_PistolGrip_AK_TapcoSaw",
+      "IMP_PistolGrip_AK_UsPalm",
+      "IMP_PistolGrip_AK_ZenitRK3",
+      "IMP_PistolGrip_AR_AR15A2",
+      "IMP_PistolGrip_AR_AR15DLG",
+      "IMP_PistolGrip_AR_AR15F1Skeletonized",
+      "IMP_PistolGrip_AR_AR15HeraArmsHG15",
+      "IMP_PistolGrip_AR_AR15HKBattleGrip",
+      "IMP_PistolGrip_AR_AR15HKBattleGripBeaverTail",
+      "IMP_PistolGrip_AR_AR15HKBattleGripBeaverTail_Tan",
+      "IMP_PistolGrip_AR_AR15HKErgoPSG1",
+      "IMP_PistolGrip_AR_AR15HKGripV2",
+      "IMP_PistolGrip_AR_AR15HogueOverMolded",
+      "IMP_PistolGrip_AR_AR15HogueOverMolded_Tan",
+      "IMP_PistolGrip_AR_AR15HogueOverMolded_Green",
+      "IMP_PistolGrip_AR_AR15MagpulMoe",
+      "IMP_PistolGrip_AR_AR15MagpulMoe_Tan",
+      "IMP_PistolGrip_AR_AR15NarohArms",
+      "IMP_PistolGrip_AR_AR15SigMcx",
+      "IMP_PistolGrip_AR_AR15StarkArRifle",
+      "IMP_PistolGrip_AR_AR15StarkArRifle_Green",
+      "IMP_PistolGrip_AR_AR15TacticalDynamicsHexgrip",
+      "IMP_PistolGrip_AR_AR15TacticalDynamicsSkel",
+      "IMP_PistolGrip_AR_MagpulMiadGen1",
+      "OZW_IMP_Grip_FortisShift",
+      "OZW_IMP_Grip_TangoDown_Black",
+      "OZW_IMP_Grip_TangoDown_Blue",
+      "OZW_IMP_Grip_TangoDown_Tan",
+      "OZW_IMP_Grip_VtacUVG",
+      "OZW_IMP_Grip_ZenitB25u",
+      "OZW_IMP_Grip_ZenitRK5",
+      "OZW_IMP_PistolGrip_AK_AK12Izhmash",
+      "OZW_IMP_PistolGrip_AK_CustomArms",
+      "OZW_IMP_PistolGrip_AK_Kgb_red",
+      "OZW_IMP_PistolGrip_AK_Kgb_gold",
+      "OZW_IMP_PistolGrip_AK_Aeroknox",
+      "OZW_IMP_PistolGrip_AK_ZenitRK3",
+      "OZW_IMP_PistolGrip_AR_AR15HogueOverMolded",
+      "OZW_IMP_PistolGrip_AR_AR15HogueOverMolded_Tan",
+      "OZW_IMP_PistolGrip_AR_AR15HogueOverMolded_Green",
+      "OZW_IMP_PistolGrip_AR_AR15NarohArms",
+      "OZW_IMP_PistolGrip_AR_AR15StarkArRifle",
+      "OZW_IMP_PistolGrip_AR_AR15StarkArRifle_Green",
+      "OZW_IMP_PistolGrip_AR_AR15TacticalDynamicsHexgrip",
+      "OZW_IMP_PistolGrip_AR_AR15TacticalDynamicsSkel",
+      "PlateCarrierVest",
+      "PlateCarrierVest_Black",
+      "PlateCarrierVest_Green",
+      "PlateCarrierVest_Camo",
+      "IMP_Bttstk_AK_AEK",
+      "IMP_Bttstk_AK_AK12",
+      "IMP_Bttstk_AK_AK12M",
+      "IMP_Bttstk_AK_FabDefense",
+      "IMP_Bttstk_AK_HexagonKocherga",
+      "IMP_Bttstk_AK_Magpul2",
+      "IMP_Bttstk_AK_Magpul",
+      "IMP_Bttstk_AK_PromagArchangel",
+      "IMP_Bttstk_RPK16_Black",
+      "IMP_Bttstk_RPK16_Green",
+      "IMP_Bttstk_RPK16_Tan",
+      "IMP_Bttstk_AK_Tact2",
+      "IMP_Bttstk_AK_Tact",
+      "IMP_Bttstk_AK_VEPR",
+      "IMP_Bttstk_AK_Zenit12",
+      "IMP_Bttstk_AK_Zenit_Black",
+      "IMP_Bttstk_AK_Zenit_Silver",
+      "IMP_Bttstk_AK_ZenitPT3",
+      "IMP_Bttstk_AR_AR15Ak12",
+      "IMP_Bttstk_AR_Ar15StrikeIndustriesPDWStock",
+      "IMP_Bttstk_AR_Ar15StrikeIndustriesViper",
+      "IMP_Bttstk_AR_ARArmaconBaskak",
+      "IMP_Bttstk_AR_ARTacticalSba3",
+      "IMP_Bttstk_AR_ARVltorEmod",
+      "IMP_Bttstk_AR_B15Precision",
+      "IMP_Bttstk_AR_DoubleStarAceGen4",
+      "IMP_Bttstk_AR_ErgoF93ProStock",
+      "IMP_Bttstk_AR_FabDefenceGlCore",
+      "IMP_Bttstk_AR_FabDefenceGlr16s",
+      "IMP_Bttstk_AR_FabDefenceGLShock",
+      "IMP_Bttstk_M4_Fortis",
+      "IMP_Bttstk_AR_KrissDefiance",
+      "IMP_Bttstk_AR_KrissDefiance_Tan",
+      "IMP_Bttstk_AR_MagpulPrsGen2",
+      "IMP_Bttstk_AR_MagpulUbrGen2",
+      "IMP_Bttstk_AR_MagpulUbrGen2_Tan",
+      "IMP_Bttstk_AR_MFTBusButtstock",
+      "IMP_Bttstk_AR_RipStockMicro",
+      "IMP_Bttstk_Fal_MagpulPRS2",
+      "IMP_Bttstk_Fal_HumpBack",
+      "IMP_Bttstk_Fal_ParaBrsBttstck",
+      "IMP_Bttstk_Fal_ParaFoldingBttstck",
+      "IMP_Bttstk_Fal_SprBttstck",
+      "IMP_Bttstk_G36_KV",
+      "IMP_Bttstk_G36_Polymer",
+      "IMP_Bttstk_HK417AdjustableBttstck",
+      "IMP_Bttstk_HK417Concave",
+      "IMP_Bttstk_HKButtstock",
+      "IMP_Bttstk_HKButtstockSlim",
+      "OZW_IMP_Bttstk_AK_HexagonKocherga",
+      "OZW_IMP_Bttstk_AK_Magpul",
+      "OZW_IMP_Bttstk_AK_PromagArchangel",
+      "OZW_IMP_Bttstk_AK_Tact2",
+      "OZW_IMP_Bttstk_AK_ZenitPT3",
+      "OZW_IMP_Bttstk_AR_Ar15StrikeIndustriesViper",
+      "OZW_IMP_Bttstk_AR_B15Precision",
+      "OZW_IMP_Bttstk_AR_ErgoF93ProStock",
+      "OZW_IMP_Bttstk_AR_FabDefenceGlCore",
+      "OZW_IMP_Bttstk_AR_FabDefenceGLShock",
+      "OZW_IMP_Bttstk_Fal_HumpBack",
+      "OZW_IMP_Bttstk_Fal_ParaFoldingBttstck",
+      "OZW_IMP_Bttstk_Fal_SprBttstck",
+      "M4_PlasticHndgrd",
+      "M4_PlasticHndgrd_Black",
+      "M4_PlasticHndgrd_Green",
+      "M4_RISHndgrd",
+      "M4_RISHndgrd_Black",
+      "M4_RISHndgrd_Green",
+      "M4_MPHndgrd",
+      "M4_MPHndgrd_Black",
+      "M4_MPHndgrd_Green",
+      "AK_WoodHndgrd",
+      "AK_WoodHndgrd_Black",
+      "AK_WoodHndgrd_Camo",
+      "AK74_Hndgrd",
+      "AK74_Hndgrd_Black",
+      "AK74_Hndgrd_Camo",
+      "AK_RailHndgrd",
+      "AK_RailHndgrd_Black",
+      "AK_RailHndgrd_Green",
+      "AK_PlasticHndgrd",
+      "MP5_PlasticHndgrd",
+      "MP5_RailHndgrd",
+      "M249_Hndgrd",
+      "M249_RisHndgrd",
+      "IMP_Hndgrd_AK_AKArmsFactoryWar",
+      "IMP_Hndgrd_AK_Big",
+      "IMP_Hndgrd_AK_AKHexagon_black",
+      "IMP_Hndgrd_AK_AKHexagon_red",
+      "IMP_Hndgrd_AK_AKKrebs",
+      "IMP_Hndgrd_AK_AKMagpulMOE_black",
+      "IMP_Hndgrd_AK_AKMagpulMOE_fde",
+      "IMP_Hndgrd_AK_AKMagpulMOE_od",
+      "IMP_Hndgrd_AK_AKMagpulMOE_plm",
+      "IMP_Hndgrd_AK_AKMagpulMOE_sg",
+      "IMP_Hndgrd_AK_AKMagpulZhukov_black",
+      "IMP_Hndgrd_AK_AKMagpulZhukov_fde",
+      "IMP_Hndgrd_AK_AKMagpulZhukov_plm",
+      "IMP_Hndgrd_AK_AKRailPolymer",
+      "IMP_Hndgrd_AK_AKRedHeadAgressor",
+      "IMP_Hndgrd_AK_Small",
+      "IMP_Hndgrd_AK_AKTdix47_black",
+      "IMP_Hndgrd_AK_AKTdix47_inox",
+      "IMP_Hndgrd_AK_AKVltor",
+      "IMP_Hndgrd_AK_VLTOR_Black",
+      "IMP_Hndgrd_AK_VLTOR_Green",
+      "IMP_Hndgrd_AK_VLTOR_Tan",
+      "IMP_Hndgrd_AK_AKWood",
+      "IMP_Hndgrd_AK_AKZenitB10m",
+      "IMP_Hndgrd_AK_AKZenitB30",
+      "IMP_Hndgrd_AK_Polymer_Black",
+      "IMP_Hndgrd_AK_Polymer_Tan",
+      "IMP_Hndgrd_AK_Romanian",
+      "IMP_Hndgrd_AK_Zenit",
+      "IMP_Hndgrd_FnFal_AimSportKeyModHndgrd",
+      "IMP_Hndgrd_FnFal_AimSportMlokHndgrd",
+      "IMP_Hndgrd_FnFal_BelgianStyleHndgrd",
+      "IMP_Hndgrd_FnFal_DsArmsFullHndgrd",
+      "IMP_Hndgrd_FnFal_OriginalStampedHndgrd",
+      "IMP_Hndgrd_FnFal_VltorCasvHndgrd",
+      "IMP_Hndgrd_M4_Rail",
+      "OZW_IMP_Hndgrd_AK_AKRailPolymer",
+      "OZW_IMP_Hndgrd_AK_AKRedHeadAgressor",
+      "OZW_IMP_Hndgrd_AK_AKTdix47_black",
+      "OZW_IMP_Hndgrd_AK_AKZenitB10m",
+      "OZW_IMP_Hndgrd_AK_AKZenitB30",
+      "OZW_IMP_Hndgrd_FnFal_DsArmsFullHndgrd",
+      "OZW_IMP_Hndgrd_FnFal_OriginalStampedHndgrd",
+      "OZW_IMP_Hndgrd_FnFal_VltorCasvHndgrd",
+      "OZW_IMP_Hndgrd_M4_Rail",
+      "Weapon",
       "Weapon_Base",
-      "ClothingBase",
-      "TesteItem"
+      "Clothing",
+      "ClothingBase"
     ],
     "Repaints": [
       {
@@ -34,54 +250,785 @@
           "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa"
         ],
         "HiddenSelectionMaterials": [],
-        "PermissionGroups": [
-          "VIP"
-        ],
+        "PermissionGroups": [],
         "Attachments": [
           {
-            "ItemNames": [
-              "TesteAttach"
-            ],
-            "HiddenSelectionTextures": [
-              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
-              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa",
-              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white_co.paa"
-            ],
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
             "HiddenSelectionMaterials": []
           }
         ]
-      }
-    ]
-  },
-  {
-    "ItemNames": [
-      "---Roupas---",
-      "Clothing"
-    ],
-    "Repaints": [
+      },
       {
-        "Name": "Branco",
-        "OverwrittenDisplayName": "$original$ (Branco)",
+        "Name": "Black",
+        "OverwrittenDisplayName": "$original$ (Black)",
         "HiddenSelectionTextures": [
-          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
-          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
-          "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa"
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_black_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_black_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_black_co.paa"
         ],
         "HiddenSelectionMaterials": [],
-        "PermissionGroups": [
-          "Admin"
-        ],
+        "PermissionGroups": [],
         "Attachments": [
           {
-            "ItemNames": [
-              "Bolso",
-              "Coldre"
-            ],
-            "HiddenSelectionTextures": [
-              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
-              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa",
-              "OrigemZRapaintSystem/items/Weapons/Universal/orz_white2_co.paa"
-            ],
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Black 2",
+        "OverwrittenDisplayName": "$original$ (Black 2)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_black_chanfrado_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_black_chanfrado_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_black_chanfrado_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Black 3",
+        "OverwrittenDisplayName": "$original$ (Black 3)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_black_monolitico_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_black_monolitico_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_black_monolitico_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Black 4",
+        "OverwrittenDisplayName": "$original$ (Black 4)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_black_relevo_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_black_relevo_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_black_relevo_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "XMAS WhiteBlue",
+        "OverwrittenDisplayName": "$original$ (WhiteBlue)",
+        "HiddenSelectionTextures": [
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_1_g.paa",
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_1.paa",
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_1.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "XMAS WhiteRed",
+        "OverwrittenDisplayName": "$original$ (WhiteRed)",
+        "HiddenSelectionTextures": [
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_2_g.paa",
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_2.paa",
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_2.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "XMAS Green",
+        "OverwrittenDisplayName": "$original$ (Green)",
+        "HiddenSelectionTextures": [
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_3_g.paa",
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_3.paa",
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_3.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "XMAS Red",
+        "OverwrittenDisplayName": "$original$ (Red)",
+        "HiddenSelectionTextures": [
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_4_g.paa",
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_4.paa",
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_4.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "XMAS Black",
+        "OverwrittenDisplayName": "$original$ (Black)",
+        "HiddenSelectionTextures": [
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_5_g.paa",
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_5.paa",
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_5.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "XMAS Pruple",
+        "OverwrittenDisplayName": "$original$ (Purble)",
+        "HiddenSelectionTextures": [
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_6_g.paa",
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_6.paa",
+          "MerryZmas/ZmasItems/data/retextures/xmassweater/sweater_6.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Abstract",
+        "OverwrittenDisplayName": "$original$ (Abstract)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_purple_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_purple_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_purple_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Watermelon",
+        "OverwrittenDisplayName": "$original$ (Watermelon)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_greenpink_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_greenpink_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_greenpink_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Camo Winter 1",
+        "OverwrittenDisplayName": "$original$ (Camo Winter 1)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_winter_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_winter_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_winter_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Camo Winter 2",
+        "OverwrittenDisplayName": "$original$ (Camo Winter 2)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_winter2_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_winter2_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_winter2_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Camo 1",
+        "OverwrittenDisplayName": "$original$ (Camo 1)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo1_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo1_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo1_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Camo 2",
+        "OverwrittenDisplayName": "$original$ (Camo 2)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_army_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_army_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_army_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Camo 3",
+        "OverwrittenDisplayName": "$original$ (Camo 3)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_blue_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_blue_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_camo_blue_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Composition Red",
+        "OverwrittenDisplayName": "$original$ (Composition Red)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_composition_red_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_composition_red_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_composition_red_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Composition Black",
+        "OverwrittenDisplayName": "$original$ (Composition Black)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_composition_black_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_composition_black_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/orz_composition_black_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Abstract Pencil",
+        "OverwrittenDisplayName": "$original$ (Abstract Pencil)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_bluepencil_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_bluepencil_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_bluepencil_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Abstract Flame",
+        "OverwrittenDisplayName": "$original$ (Abstract Flame)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_flame_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_flame_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_flame_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Abstract Flame 2",
+        "OverwrittenDisplayName": "$original$ (Abstract Flame 2)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_flame2_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_flame2_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_flame2_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Abstract Green",
+        "OverwrittenDisplayName": "$original$ (Abstract Green)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_green_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_green_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_green_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Abstract Green/Black",
+        "OverwrittenDisplayName": "$original$ (Abstract Green/Black)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_greenblack_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_greenblack_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_greenblack_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Abstract Geometric",
+        "OverwrittenDisplayName": "$original$ (Abstract Geometric)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_whitegeometric_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_whitegeometric_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_whitegeometric_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Abstract Yellow",
+        "OverwrittenDisplayName": "$original$ (Abstract Yellow)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_yellow_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_yellow_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_yellow_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Abstract Yellow/Black",
+        "OverwrittenDisplayName": "$original$ (Abstract Yellow/Black)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_yellowblack_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_yellowblack_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/abstract_yellowblack_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Synbols Pencil",
+        "OverwrittenDisplayName": "$original$ (Synbols Pencil)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/synbols_pencil_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/synbols_pencil_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/synbols_pencil_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Synbols Purple",
+        "OverwrittenDisplayName": "$original$ (Synbols Purple)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/synbols_purple_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/synbols_purple_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/synbols_purple_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "CS Asiimov",
+        "OverwrittenDisplayName": "$original$ (CS Asiimov)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/cs_asiimov_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/cs_asiimov_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/cs_asiimov_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "CS CaseHardened",
+        "OverwrittenDisplayName": "$original$ (CS CaseHardened)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/cs_casehardened_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/cs_casehardened_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/cs_casehardened_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "CS CrimsonWeb",
+        "OverwrittenDisplayName": "$original$ (CS CrimsonWeb)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/cs_crimsonweb_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/cs_crimsonweb_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/cs_crimsonweb_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "CS Hyperbeast",
+        "OverwrittenDisplayName": "$original$ (CS Hyperbeast)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/cs_hyperbeast_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/cs_hyperbeast_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/cs_hyperbeast_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Liquid Horizon",
+        "OverwrittenDisplayName": "$original$ (Fluid Blue)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/liquid_horizon_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/liquid_horizon_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/liquid_horizon_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Liquid Echo",
+        "OverwrittenDisplayName": "$original$ (Liquid Echo)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/liquid_echo_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/liquid_echo_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/liquid_echo_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Liquid Mist",
+        "OverwrittenDisplayName": "$original$ (Liquid Mist)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/liquid_mist_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/liquid_mist_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/liquid_mist_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Liquid Sapphire",
+        "OverwrittenDisplayName": "$original$ (Liquid Sapphire)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/liquid_sapphire_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/liquid_sapphire_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/liquid_sapphire_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Digital Jungle",
+        "OverwrittenDisplayName": "$original$ (Digital Jungle)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/digital_jungle_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/digital_jungle_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/digital_jungle_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Digital Grid 512",
+        "OverwrittenDisplayName": "$original$ (Digital Grid)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/dital_grid512_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/dital_grid512_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/dital_grid512_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Digital Grid 1024",
+        "OverwrittenDisplayName": "$original$ (Digital Grid)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/dital_grid1024_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/dital_grid1024_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/dital_grid1024_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Pattern IMG256",
+        "OverwrittenDisplayName": "$original$ (Pattern IMG256)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/dital_grid_com_img256_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/dital_grid_com_img256_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/dital_grid_com_img256_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Pattern IMG512",
+        "OverwrittenDisplayName": "$original$ (Pattern IMG512)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/dital_grid_com_img512_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/dital_grid_com_img512_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/dital_grid_com_img512_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
+            "HiddenSelectionMaterials": []
+          }
+        ]
+      },
+      {
+        "Name": "Gucci",
+        "OverwrittenDisplayName": "$original$ (Gucci)",
+        "HiddenSelectionTextures": [
+          "OrigemZRapaintSystem/items/Weapons/Universal/gucci_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/gucci_co.paa",
+          "OrigemZRapaintSystem/items/Weapons/Universal/gucci_co.paa"
+        ],
+        "HiddenSelectionMaterials": [],
+        "PermissionGroups": [],
+        "Attachments": [
+          {
+            "ItemNames": [],
+            "HiddenSelectionTextures": [],
             "HiddenSelectionMaterials": []
           }
         ]

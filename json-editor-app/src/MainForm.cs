@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using json_editor_app.Models;
+using Newtonsoft.Json.Serialization;
 
 namespace json_editor_app
 {
@@ -74,6 +75,14 @@ namespace json_editor_app
             }
         }
 
+        public class PreserveCaseContractResolver : DefaultContractResolver
+        {
+            protected override string ResolvePropertyName(string propertyName)
+            {
+                return propertyName;
+            }
+        }
+
         private void SaveToFile(string filePath)
         {
             try
@@ -90,6 +99,10 @@ namespace json_editor_app
                         var repaint = selectedItem.Repaints[selectedRepaintIndex];
                         repaint.Name = textBoxName.Text;
                         repaint.OverwrittenDisplayName = textBoxOverwrittenDisplayName.Text;
+                        repaint.ExcludedItems = textBoxExcludedItems.Text
+                            .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+                            .Where(s => !string.IsNullOrWhiteSpace(s))
+                            .ToList();
                         repaint.HiddenSelectionTextures = textBoxHiddenSelectionTextures.Text
                             .Split(new[] { Environment.NewLine }, StringSplitOptions.None)
                             .Where(s => !string.IsNullOrWhiteSpace(s))
@@ -142,7 +155,11 @@ namespace json_editor_app
                     }
                 }
 
-                var jsonData = JsonConvert.SerializeObject(itemNames, Formatting.Indented);
+                // Serializar o JSON com as chaves preservando o caso sensível
+                var jsonData = JsonConvert.SerializeObject(itemNames, Formatting.Indented, new JsonSerializerSettings
+                {
+                    ContractResolver = new PreserveCaseContractResolver()
+                });
                 File.WriteAllText(filePath, jsonData);
                 MessageBox.Show("JSON saved successfully.");
                 currentFilePath = filePath;
@@ -182,7 +199,10 @@ namespace json_editor_app
                     .Where(i => i.ItemNames.Count > 0)
                     .ToList();
 
-                var jsonData = JsonConvert.SerializeObject(finalItemNames, Formatting.Indented);
+                var jsonData = JsonConvert.SerializeObject(finalItemNames, Formatting.Indented, new JsonSerializerSettings
+                {
+                    ContractResolver = new PreserveCaseContractResolver()
+                });
                 File.WriteAllText(filePath, jsonData);
                 MessageBox.Show("Final version JSON saved successfully.");
             }
@@ -203,7 +223,7 @@ namespace json_editor_app
                 {
                     bindingSourceRepaints.DataSource = selectedItem.Repaints;
                     listBoxRepaints.DataSource = bindingSourceRepaints;
-                    listBoxRepaints.DisplayMember = "Name";
+                    listBoxRepaints.DisplayMember = "name";
                 }
             }
         }
@@ -221,6 +241,7 @@ namespace json_editor_app
                     var repaint = selectedItem.Repaints[selectedRepaintIndex];
                     textBoxName.Text = repaint.Name;
                     textBoxOverwrittenDisplayName.Text = repaint.OverwrittenDisplayName;
+                    textBoxExcludedItems.Text = string.Join(Environment.NewLine, repaint.ExcludedItems);
                     textBoxHiddenSelectionTextures.Text = string.Join(Environment.NewLine, repaint.HiddenSelectionTextures);
                     textBoxHiddenSelectionMaterials.Text = string.Join(Environment.NewLine, repaint.HiddenSelectionMaterials);
                     textBoxPermissionGroups.Text = string.Join(Environment.NewLine, repaint.PermissionGroups);
@@ -290,7 +311,7 @@ namespace json_editor_app
                         bindingSourceRepaints.DataSource = selectedItem.Repaints;
                         listBoxRepaints.DataSource = null;
                         listBoxRepaints.DataSource = bindingSourceRepaints;
-                        listBoxRepaints.DisplayMember = "Name";
+                        listBoxRepaints.DisplayMember = "name";
                     }
                 }
             }
@@ -310,7 +331,7 @@ namespace json_editor_app
                     bindingSourceRepaints.DataSource = selectedItem.Repaints;
                     listBoxRepaints.DataSource = null;
                     listBoxRepaints.DataSource = bindingSourceRepaints;
-                    listBoxRepaints.DisplayMember = "Name";
+                    listBoxRepaints.DisplayMember = "name";
                 }
             }
         }
@@ -360,7 +381,7 @@ namespace json_editor_app
                                 bindingSourceRepaints.DataSource = selectedItem.Repaints;
                                 listBoxRepaints.DataSource = null;
                                 listBoxRepaints.DataSource = bindingSourceRepaints;
-                                listBoxRepaints.DisplayMember = "Name";
+                                listBoxRepaints.DisplayMember = "name";
                             }
                         }
                     }
@@ -392,6 +413,7 @@ namespace json_editor_app
                                 {
                                     Name = repaint.Name,
                                     OverwrittenDisplayName = repaint.OverwrittenDisplayName,
+                                    ExcludedItems = new List<string>(repaint.ExcludedItems),
                                     HiddenSelectionTextures = new List<string>(repaint.HiddenSelectionTextures),
                                     HiddenSelectionMaterials = new List<string>(repaint.HiddenSelectionMaterials),
                                     PermissionGroups = new List<string>(repaint.PermissionGroups),
@@ -406,7 +428,7 @@ namespace json_editor_app
                                 bindingSourceRepaints.DataSource = selectedItem.Repaints;
                                 listBoxRepaints.DataSource = null;
                                 listBoxRepaints.DataSource = bindingSourceRepaints;
-                                listBoxRepaints.DisplayMember = "Name";
+                                listBoxRepaints.DisplayMember = "name";
                             }
                         }
                     }
@@ -418,6 +440,7 @@ namespace json_editor_app
         {
             textBoxName.Clear();
             textBoxOverwrittenDisplayName.Clear();
+            textBoxExcludedItems.Clear();
             textBoxHiddenSelectionTextures.Clear();
             textBoxHiddenSelectionMaterials.Clear();
             textBoxPermissionGroups.Clear();
@@ -458,6 +481,30 @@ namespace json_editor_app
                                              .ToList();
                 comboBoxItemNames.Items.Clear();
                 comboBoxItemNames.Items.AddRange(itemNamesList.ToArray());
+            }
+        }
+
+        private void RenameItemNameButton_Click(object sender, EventArgs e)
+        {
+            var selectedIndex = listBoxItemNames.SelectedIndex;
+            if (selectedIndex >= 0)
+            {
+                var selectedItemName = listBoxItemNames.SelectedItem.ToString();
+                var newItemName = Prompt.ShowDialog("Enter new item name:", "Rename Item", selectedItemName);
+                if (!string.IsNullOrWhiteSpace(newItemName))
+                {
+                    var selectedItem = itemNames.FirstOrDefault(i => i.ItemNames.Contains(selectedItemName));
+                    if (selectedItem != null)
+                    {
+                        var index = selectedItem.ItemNames.IndexOf(selectedItemName);
+                        if (index >= 0)
+                        {
+                            selectedItem.ItemNames[index] = newItemName;
+                            bindingSourceItemNames.DataSource = itemNames.SelectMany(i => i.ItemNames).ToList();
+                            LoadItemNamesToComboBox(); // Atualizar ComboBox após renomear item
+                        }
+                    }
+                }
             }
         }
     }
