@@ -102,7 +102,7 @@
               "RelativeDocumentMoniker": "src\\MainForm.Designer.cs",
               "ToolTip": "D:\\C#\\SkinEditor\\json-editor-app\\src\\MainForm.Designer.cs",
               "RelativeToolTip": "src\\MainForm.Designer.cs",
-              "ViewState": "AgIAAD4CAAAAAAAAAAAwwGECAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHgBAAAAAAAAAAAwwGECAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-26T16:41:25.7Z",
               "EditorCaption": ""
@@ -115,7 +115,7 @@
               "RelativeDocumentMoniker": "src\\MainForm.cs",
               "ToolTip": "D:\\C#\\SkinEditor\\json-editor-app\\src\\MainForm.cs",
               "RelativeToolTip": "src\\MainForm.cs",
-              "ViewState": "AgIAAHMCAAAAAAAAAAAuwH4CAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAGsBAAAAAAAAAAAUwH4CAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-26T12:28:13.283Z",
               "EditorCaption": ""
@@ -130,8 +130,7 @@
               "RelativeToolTip": "src\\Repaint.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T12:00:59.041Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T12:00:59.041Z"
             },
             {
               "$type": "Document",
