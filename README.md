@@ -1,6 +1,6 @@
 OriginZ Skin Editor for LBmaster Repaint System.
 
-![Skin Editor Screenshot](https://github.com/SigWars/OrgemZSkinEditor/blob/Readme_img.png)
+![Skin Editor Screenshot](https://github.com/SigWars/OrgemZSkinEditor/blob/main/Readme_img.png)
 
 Due to the large size of the file due to the skin configuration for the Repaint mod, I decided to create this editor to make it easier and avoid errors when saving the json.
 
